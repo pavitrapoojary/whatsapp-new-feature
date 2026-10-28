@@ -29,10 +29,10 @@ flowchart LR
     D -->|"Back to WhatsApp"| E["📱 'Bhej diya bro' + Screenshot<br/>(Lost in chat history)"]
 
     style A fill:#e9f1fb,stroke:#2b5d9b,stroke-width:1.5px
-    B fill:#efeae2,stroke:#008069,stroke-width:2px
-    C fill:#fbe9e5,stroke:#a3402c,stroke-width:1.5px
-    D fill:#fff4de,stroke:#8a5a00,stroke-width:1.5px
-    E fill:#e8f3ee,stroke:#0b5d4f,stroke-width:1.5px
+    style B fill:#efeae2,stroke:#008069,stroke-width:2px
+    style C fill:#fbe9e5,stroke:#a3402c,stroke-width:1.5px
+    style D fill:#fff4de,stroke:#8a5a00,stroke-width:1.5px
+    style E fill:#e8f3ee,stroke:#0b5d4f,stroke-width:1.5px
 ```
 
 ### The Product Hypothesis
