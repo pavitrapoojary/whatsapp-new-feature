@@ -1,1025 +1,2764 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>💸 Split it where you share it · WhatsApp Pay product thesis</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="alternate icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>">
-<meta name="description" content="Chat-native expense splitting and instant UPI settlement for shared bookings in WhatsApp. A product thesis by Pavitra Poojary.">
-<meta name="author" content="Pavitra Poojary">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Split it where you share it · WhatsApp Pay product thesis</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>">
+  <meta name="description"
+    content="Chat-native expense splitting and instant UPI settlement for shared bookings in WhatsApp. A product thesis by Pavitra Poojary.">
+  <meta name="author" content="Pavitra Poojary">
 
-<!-- Open Graph / LinkedIn / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://whatsapp-new-feature.vercel.app/">
-<meta property="og:title" content="Split it where you share it · WhatsApp Pay product thesis">
-<meta property="og:description" content="Chat-native expense splitting and instant UPI settlement for shared bookings in WhatsApp. A product thesis by Pavitra Poojary.">
-<meta property="og:image" content="https://whatsapp-new-feature.vercel.app/preview-image.png">
-<meta property="og:image:secure_url" content="https://whatsapp-new-feature.vercel.app/preview-image.png">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1920">
-<meta property="og:image:height" content="1080">
-<meta property="og:image:alt" content="WhatsApp Pay Split & Pay - Product Concept & Interactive Prototype">
+  <!-- Open Graph / LinkedIn / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://whatsapp-new-feature.vercel.app/">
+  <meta property="og:title" content="Split it where you share it · WhatsApp Pay product thesis">
+  <meta property="og:description"
+    content="Chat-native expense splitting and instant UPI settlement for shared bookings in WhatsApp. A product thesis by Pavitra Poojary.">
+  <meta property="og:image" content="https://whatsapp-new-feature.vercel.app/preview-image.png">
+  <meta property="og:image:secure_url" content="https://whatsapp-new-feature.vercel.app/preview-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:image:alt" content="WhatsApp Pay Split & Pay - Product Concept & Interactive Prototype">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://whatsapp-new-feature.vercel.app/">
-<meta name="twitter:title" content="Split it where you share it · WhatsApp Pay product thesis">
-<meta name="twitter:description" content="Chat-native expense splitting and instant UPI settlement for shared bookings in WhatsApp. A product thesis by Pavitra Poojary.">
-<meta name="twitter:image" content="https://whatsapp-new-feature.vercel.app/preview-image.png">
-<meta name="twitter:image:alt" content="WhatsApp Pay Split & Pay - Product Concept & Interactive Prototype">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://whatsapp-new-feature.vercel.app/">
+  <meta name="twitter:title" content="Split it where you share it · WhatsApp Pay product thesis">
+  <meta name="twitter:description"
+    content="Chat-native expense splitting and instant UPI settlement for shared bookings in WhatsApp. A product thesis by Pavitra Poojary.">
+  <meta name="twitter:image" content="https://whatsapp-new-feature.vercel.app/preview-image.png">
+  <meta name="twitter:image:alt" content="WhatsApp Pay Split & Pay - Product Concept & Interactive Prototype">
 
-<link rel="canonical" href="https://whatsapp-new-feature.vercel.app/">
-<link rel="image_src" href="https://whatsapp-new-feature.vercel.app/preview-image.png">
-<style>
-:root{
-  --bg:#f6faf8; --card:#ffffff; --ink:#1c2b26; --muted:#5d7069; --line:#dbe6e1;
-  --teal:#0b5d4f; --green:#008069; --soft:#e8f3ee; --soft2:#f1f8f5;
-  --amber:#fff4de; --amberTx:#8a5a00; --red:#fbe9e5; --redTx:#a3402c; --blue:#e9f1fb; --blueTx:#2b5d9b;
-  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --serif:Cambria,"Times New Roman",Georgia,serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.5;display:flex;flex-direction:column;height:100vh;overflow:hidden}
+  <link rel="canonical" href="https://whatsapp-new-feature.vercel.app/">
+  <link rel="image_src" href="https://whatsapp-new-feature.vercel.app/preview-image.png">
+  <style>
+    :root {
+      --bg: #f6faf8;
+      --card: #ffffff;
+      --ink: #1c2b26;
+      --muted: #5d7069;
+      --line: #dbe6e1;
+      --teal: #0b5d4f;
+      --green: #008069;
+      --soft: #e8f3ee;
+      --soft2: #f1f8f5;
+      --amber: #fff4de;
+      --amberTx: #8a5a00;
+      --red: #fbe9e5;
+      --redTx: #a3402c;
+      --blue: #e9f1fb;
+      --blueTx: #2b5d9b;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --serif: Cambria, "Times New Roman", Georgia, serif;
+    }
 
-/* chrome */
-.top{background:#fff;border-bottom:1px solid var(--line);padding:10px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex:none}
-.brand{font-size:16px;font-weight:700;color:var(--teal);white-space:nowrap}
-.brand small{font-family:var(--sans);font-size:12px;color:var(--muted);font-weight:500;margin-left:8px}
-.dots{display:flex;gap:5px;align-items:center;flex-wrap:wrap;justify-content:center}
-.dots i{display:block;width:12px;height:4px;border-radius:2px;background:var(--line);cursor:pointer;transition:.2s}
-.dots i.on{width:26px;background:var(--teal)}
-.top-actions{display:flex;align-items:center;gap:8px;flex:none}
-.count{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--muted);background:var(--soft);padding:3px 10px;border-radius:12px;white-space:nowrap}
-.top-link{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--teal);text-decoration:none;padding:5px 11px;border-radius:14px;border:1px solid var(--line);background:#fff;display:inline-flex;align-items:center;gap:6px;transition:.15s;white-space:nowrap}
-.top-link:hover{border-color:var(--teal);background:var(--soft);color:var(--teal)}
-.top-link svg{display:block;flex:none}
-.view{flex:1;overflow-y:auto}
-.slide{display:none;max-width:1160px;margin:0 auto;padding:30px 28px 36px;animation:rise .3s ease}
-.slide.on{display:block}
-@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.bottom{background:#fff;border-top:1px solid var(--line);padding:10px 22px;display:flex;justify-content:space-between;align-items:center;flex:none;gap:12px}
-.bottom-mid{display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center}
-.bottom span{font-family:var(--sans);font-size:12px;color:var(--muted)}
-.footer-byline{font-family:var(--sans);font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:center}
-.footer-byline a{color:var(--teal);text-decoration:none;font-weight:600;transition:.15s;display:inline-flex;align-items:center;gap:3px}
-.footer-byline a:hover{color:var(--green);text-decoration:underline}
-@media(max-width:768px){
-  .top{padding:8px 12px;gap:8px}
-  .brand small{display:none}
-  .dots{display:none}
-  .top-link .label{display:none}
-  .top-link{padding:5px 8px}
-  .bottom{padding:8px 10px;gap:6px}
-  .bottom .btn{padding:7px 11px;font-size:13px}
-  .footer-byline{font-size:10.5px}
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
 
-/* type */
-.eye{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--green);margin-bottom:6px;display:block}
-h1{font-size:clamp(28px,4.2vw,44px);line-height:1.12;color:var(--teal);letter-spacing:-.015em;margin-bottom:12px}
-h2{font-size:clamp(23px,3vw,34px);line-height:1.16;color:var(--teal);margin-bottom:8px}
-h3{font-size:18px;color:var(--teal);margin-bottom:6px}
-p{font-size:16px;margin-bottom:10px}
-.lead{font-size:18px;color:var(--muted);margin-bottom:16px;max-width:860px}
-ul{padding-left:18px}
-li{font-size:15px;margin-bottom:5px}
-.src{font-family:var(--sans);font-size:11px;color:#6d8179;margin-top:8px;display:block;line-height:1.45}
-.src a{color:var(--green)}
-.small{font-size:13px;color:var(--muted)}
+    html,
+    body {
+      height: 100%
+    }
 
-/* blocks */
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 2px 6px rgba(15,35,25,.05)}
-.card.soft{background:var(--soft2);border-color:#cfe3da}
-.card.amber{background:var(--amber);border-color:#f0dcb4}
-.card.red{background:var(--red);border-color:#f3cfc7}
-.card.blue{background:var(--blue);border-color:#cfdff2}
-.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:16px}
-.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-bottom:16px}
-.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:16px}
-.g5{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:16px}
-.chip{display:inline-block;font-family:var(--sans);font-size:12px;font-weight:600;padding:4px 11px;border-radius:14px;margin:0 6px 6px 0;background:var(--soft);color:var(--teal)}
-.chip.r{background:var(--red);color:var(--redTx)}
-.chip.a{background:var(--amber);color:var(--amberTx)}
-.chip.b{background:var(--blue);color:var(--blueTx)}
-.big{font-family:var(--sans);font-size:38px;font-weight:700;color:var(--teal);letter-spacing:-.03em;line-height:1}
-.big.sm{font-size:30px}
-.cap{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:6px}
-.btn{font-family:var(--sans);font-size:14px;font-weight:600;padding:9px 18px;border-radius:20px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
-.btn:hover{border-color:var(--teal)}
-.btn.p{background:var(--green);border-color:var(--green);color:#fff}
-.btn.p:hover{background:var(--teal)}
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--serif);
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden
+    }
 
-/* flow */
-.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:14px 0 18px}
-.node{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-width:132px;flex:1;text-align:center;font-family:var(--sans)}
-.node .ic{font-size:26px;display:block;margin-bottom:4px}
-.node b{font-size:13px;color:var(--teal);display:block}
-.node span{font-size:12px;color:var(--muted)}
-.node.hl{background:var(--teal);border-color:var(--teal)}
-.node.hl b,.node.hl span{color:#fff}
-.arr{align-self:center;color:var(--green);font-weight:700;font-size:20px;font-family:var(--sans)}
+    /* chrome */
+    .top {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      padding: 10px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex: none
+    }
 
-/* story panels */
-.story{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-bottom:14px}
-.day{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
-.mc{background:#efeae2;border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:6px;min-height:190px;font-family:var(--sans)}
-.mb{font-size:12.5px;padding:6px 9px;border-radius:8px;max-width:88%;box-shadow:0 1px 1px rgba(0,0,0,.1)}
-.mb.o{align-self:flex-end;background:#d9fdd3}
-.mb.i{align-self:flex-start;background:#fff}
-.mb .t{display:block;font-size:10px;color:#667781;text-align:right}
+    .brand {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--teal);
+      white-space: nowrap
+    }
 
-/* mini phones (slide 4) */
-.mp{width:100%;max-width:300px;margin:6px auto 10px;border:7px solid #202b28;border-radius:26px;overflow:hidden;background:#fff;font-family:var(--sans);font-size:12px}
-.mp .hd{padding:9px 12px;color:#fff;font-weight:600;font-size:13px;display:flex;align-items:center;gap:8px}
-.mp .bd{padding:10px}
-.mp .wa{background:#efeae2;padding:10px;display:flex;flex-direction:column;gap:6px;min-height:230px}
-.rowl{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #e3e3e3;font-size:12px}
-.warn{border:1px solid #e0807a;color:#b33922;border-radius:8px;padding:8px;font-size:12px;margin:8px 0}
-.pill{display:inline-block;border:1px solid #2f7d6c;color:#1f5c4e;border-radius:14px;padding:3px 10px;font-size:11.5px;margin:3px 4px 0 0;background:#fff}
+    .brand small {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+      margin-left: 8px
+    }
 
-/* matrix */
-.mx{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:14px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.mx th{background:var(--teal);color:#fff;padding:11px 12px;text-align:left;font-size:13px}
-.mx th.me{background:var(--green)}
-.mx td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:middle}
-.mx td.q{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--teal)}
-.ok,.no,.mid{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px}
-.ok{background:#dff3e8;color:#16684a}.no{background:var(--red);color:var(--redTx)}.mid{background:var(--amber);color:var(--amberTx)}
-.tw{overflow-x:auto}
+    .dots {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center
+    }
 
-/* bars */
-.chart-title{margin-bottom:28px}
-.bar{display:flex;align-items:center;gap:10px;margin:8px 0;font-family:var(--sans);font-size:13px}
-.bar label{width:92px;color:var(--muted);flex:none}
-.track{flex:1;background:#edf3f0;border-radius:8px;height:22px;position:relative;overflow:visible}
-.fill{height:100%;border-radius:8px;background:#9ccdbd;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:12px;font-weight:700;color:#0b3d33}
-.fill.wa{background:var(--green);color:#fff;min-width:34px}
-.capline{position:absolute;top:-6px;bottom:-6px;left:30%;border-left:2px dashed #c0562f;z-index:2}
-.capline em{position:absolute;bottom:calc(100% + 4px);left:2px;font-style:normal;font-size:10px;font-weight:700;color:#c0562f;background:#fff2ed;border:1px solid #f5cfc4;padding:1px 6px;border-radius:6px;white-space:nowrap;line-height:1.3}
-.stack{display:flex;height:30px;border-radius:9px;overflow:hidden;font-family:var(--sans);font-size:12px;font-weight:700;margin:8px 0}
-.stack div{display:flex;align-items:center;justify-content:center;color:#fff}
+    .dots i {
+      display: block;
+      width: 12px;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--line);
+      cursor: pointer;
+      transition: .2s
+    }
 
-/* stakeholder / generic */
-.sh{display:flex;flex-direction:column;gap:6px}
-.sh .em{font-size:28px}
-.sh h3{margin:0}
-.k{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:4px}
-.k.g{color:var(--green)}
-.step{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
-.num{flex:none;width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;font-family:var(--sans);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
-.quote{font-size:clamp(22px,3vw,32px);line-height:1.25;color:var(--teal);font-weight:700;margin:6px 0 14px;max-width:900px}
+    .dots i.on {
+      width: 26px;
+      background: var(--teal)
+    }
 
-/* ---------- PROTOTYPE ---------- */
-.proto{display:grid;grid-template-columns:372px 1fr;gap:24px;align-items:start;margin-top:10px}
-@media(max-width:880px){.proto{grid-template-columns:1fr}}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
-.tab{font-family:var(--sans);font-size:13px;font-weight:600;padding:8px 14px;border-radius:20px;border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer}
-.tab.on{background:var(--teal);color:#fff;border-color:var(--teal)}
-.phone{width:100%;max-width:372px;height:700px;margin:0 auto;border:10px solid #1f2a27;border-radius:38px;background:#fff;overflow:hidden;position:relative;display:flex;flex-direction:column;font-family:var(--sans);box-shadow:0 16px 36px rgba(0,0,0,.18)}
-.sb{flex:none;height:24px;padding:5px 16px 0;display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:#fff}
-.hdr{flex:none;display:flex;align-items:center;gap:9px;padding:8px 10px;color:#fff}
-.hdr .back{font-size:20px;line-height:1;cursor:default}
-.av{width:36px;height:36px;border-radius:50%;background:#d4e8e1;color:#0b5d4f;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex:none}
-.hdr h4{font-size:15px;font-weight:600;line-height:1.15}
-.hdr small{display:block;font-size:11px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:170px}
-.hdr .ic{margin-left:auto;display:flex;gap:14px;font-size:15px}
-.chat{flex:1;overflow-y:auto;padding:10px 10px 8px;background:#efeae2;background-image:radial-gradient(#dcd3c6 1px,transparent 1px);background-size:15px 15px;display:flex;flex-direction:column;gap:7px}
-.datechip{align-self:center;background:#fff;color:#54656f;font-size:11px;padding:4px 10px;border-radius:8px;box-shadow:0 1px 1px rgba(0,0,0,.08)}
-.bub{position:relative;max-width:84%;padding:6px 8px 4px;border-radius:8px;font-size:13px;line-height:1.3;box-shadow:0 1px .5px rgba(11,20,26,.13)}
-.bub.out{align-self:flex-end;background:#d9fdd3;border-top-right-radius:0}
-.bub.out::after{content:"";position:absolute;top:0;right:-7px;border-left:8px solid #d9fdd3;border-bottom:8px solid transparent}
-.bub.in{align-self:flex-start;background:#fff;border-top-left-radius:0}
-.bub.in::after{content:"";position:absolute;top:0;left:-7px;border-right:8px solid #fff;border-bottom:8px solid transparent}
-.who{font-size:12px;font-weight:600;margin-bottom:1px}
-.tm{display:block;text-align:right;font-size:10px;color:#667781;margin-top:2px}
-.tick{color:#53bdeb;letter-spacing:-2px;margin-left:3px}
-.linkcard{background:#f7f9f8;border-radius:6px;overflow:hidden;margin-bottom:4px;border-left:4px solid var(--c,#008069)}
-.linkcard .a{padding:6px 8px;font-size:11px;font-weight:700;color:var(--c,#008069);display:flex;justify-content:space-between}
-.linkcard .b{padding:2px 8px 7px}
-.linkcard .b b{display:block;font-size:13px}
-.linkcard .b span{font-size:11.5px;color:#667781}
-.inbar{flex:none;background:#efeae2;padding:6px 8px 8px;display:flex;gap:6px;align-items:center}
-.inbar .f{flex:1;background:#fff;border-radius:22px;padding:9px 12px;color:#8696a0;font-size:13px}
-.inbar .m{width:38px;height:38px;border-radius:50%;background:#008069;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px}
-.lockchip{align-self:center;background:#fff5c4;color:#54656f;font-size:11px;padding:4px 10px;border-radius:8px}
-.nudge{align-self:center;width:95%;background:#fff;border-radius:14px;padding:11px;box-shadow:0 3px 12px rgba(0,0,0,.14);animation:rise .3s ease}
-.nudge h5{font-size:13.5px;color:#111b21;margin-bottom:2px}
-.nudge p{font-size:12px;color:#667781;margin:0 0 4px}
-.nb{display:block;width:100%;padding:9px;border-radius:20px;border:1px solid #cfe3dc;background:#fff;color:#0b6b5a;font-weight:600;font-size:13px;margin-top:6px;cursor:pointer;font-family:inherit}
-.nb.p{background:#008069;color:#fff;border-color:#008069}
-.nb.g{border:none;color:#667781;font-weight:500}
-.gift{background:#fff3f6;border:1px solid #f4c8d4;color:#9a3558;font-size:11.5px;padding:6px 8px;border-radius:8px;margin:4px 0}
-.sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:18px 18px 0 0;padding:14px;box-shadow:0 -6px 20px rgba(0,0,0,.2);animation:up .25s ease;z-index:5}
-@keyframes up{from{transform:translateY(40px);opacity:.4}to{transform:none;opacity:1}}
-.shade{position:absolute;inset:0;background:rgba(0,0,0,.38);z-index:4}
-.sheet .grab{width:36px;height:4px;border-radius:2px;background:#d0d7d4;margin:-6px auto 8px}
-.srow{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid #f0f0f0;font-size:13px;cursor:pointer}
-.srow .l{display:flex;align-items:center;gap:8px}
-.cb{width:20px;height:20px;border-radius:5px;border:2px solid #b6c4be;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff}
-.cb.on{background:#008069;border-color:#008069}
-.reqcard{align-self:flex-end;width:92%;background:#fff;border:1.5px solid #008069;border-radius:10px;padding:10px;animation:rise .3s ease}
-.reqcard .t{font-size:11px;font-weight:700;color:#008069;letter-spacing:.03em}
-.reqrow{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:1px dashed #e1e7e4;font-size:12.5px}
-.stat{font-size:11px;font-weight:700;padding:3px 9px;border-radius:12px}
-.stat.pd{background:#e7f6f1;color:#075e54}
-.stat.pn{background:#fff3d6;color:#8a5a00}
-.paybtn{background:#008069;color:#fff;border:none;border-radius:14px;padding:5px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit}
-.prog{height:6px;border-radius:3px;background:#e6efeb;margin:8px 0 3px;overflow:hidden}
-.prog i{display:block;height:100%;background:#008069;transition:width .4s}
-.led{background:#faf8f5;border:1px solid #eee;border-radius:8px;padding:8px;font-size:12px;margin:6px 0}
-.led div{display:flex;justify-content:space-between;padding:2px 0}
-.led .tot{border-top:1px dashed #ccc;margin-top:4px;padding-top:5px;font-weight:700;color:#075e54}
-.mer{flex:1;background:#fff;padding:14px;display:flex;flex-direction:column;overflow-y:auto}
-.mer .ok{display:block;text-align:center;font-size:40px;margin:6px 0 2px;background:none;padding:0}
-.mbox{border:1px solid #ececec;border-radius:12px;padding:12px;background:#fafafa;margin:10px 0;font-size:13px}
-.mbtn{padding:12px;border-radius:10px;font-size:14px;font-weight:700;border:1.5px solid var(--c);color:var(--c);background:#fff;text-align:center;cursor:pointer;font-family:inherit;width:100%}
-.mbtn.fill{background:var(--c);color:#fff}
-.chatlist{flex:1;overflow-y:auto;background:#fff}
-.cli{display:flex;gap:10px;align-items:center;padding:10px 12px;border-bottom:1px solid #f1f1f1;font-size:14px}
-.cli.hot{background:#e9f7f2;cursor:pointer}
-.cli.hot.sel{background:#d3efe4}
-.cli small{display:block;color:#8696a0;font-size:12px}
-.sendbar{flex:none;background:#f0f2f5;padding:10px 12px;display:flex;align-items:center;gap:10px;border-top:1px solid #e4e6e8}
-.sendbar .pv{flex:1;font-size:12px;line-height:1.3}
-.fab{width:44px;height:44px;border-radius:50%;background:#008069;color:#fff;border:none;font-size:18px;cursor:pointer}
-.apps{display:flex;gap:14px;overflow-x:auto;padding:8px 2px 4px}
-.app{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11px;color:#444;min-width:54px}
-.app i{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:20px;background:#eef1f0}
-.app.wa i{background:#25d366;color:#fff;box-shadow:0 0 0 4px rgba(37,211,102,.25);animation:pulse 1.4s infinite}
-.app.wa{cursor:pointer;color:#075e54;font-weight:700}
-@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(37,211,102,.1)}}
-.pinp{text-align:center}
-.pind{display:flex;gap:12px;justify-content:center;margin:12px 0}
-.pind i{width:14px;height:14px;border-radius:50%;border:2px solid #9aa9a3}
-.pind i.f{background:#075e54;border-color:#075e54}
-.toast{position:absolute;left:12px;right:12px;bottom:64px;background:#111b21;color:#fff;font-size:12px;padding:9px 12px;border-radius:10px;z-index:8;animation:rise .25s ease}
-.pips{display:flex;gap:4px;margin-bottom:10px}
-.pips i{flex:1;height:5px;border-radius:3px;background:var(--line)}
-.pips i.d{background:var(--green)}
-.pipl{display:flex;justify-content:space-between;font-family:var(--sans);font-size:10.5px;color:var(--muted);margin-bottom:12px}
-.fld{display:flex;justify-content:space-between;gap:10px;font-family:var(--sans);font-size:13px;padding:5px 0;border-bottom:1px dashed var(--line)}
-.fld span:first-child{color:var(--muted)}
-.fld span:last-child{font-weight:600;text-align:right}
-</style>
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: none
+    }
+
+    .count {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      background: var(--soft);
+      padding: 3px 10px;
+      border-radius: 12px;
+      white-space: nowrap
+    }
+
+    .top-link {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--teal);
+      text-decoration: none;
+      padding: 5px 11px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: .15s;
+      white-space: nowrap
+    }
+
+    .top-link:hover {
+      border-color: var(--teal);
+      background: var(--soft);
+      color: var(--teal)
+    }
+
+    .top-link svg {
+      display: block;
+      flex: none
+    }
+
+    .view {
+      flex: 1;
+      overflow-y: auto
+    }
+
+    .slide {
+      display: none;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 30px 28px 36px;
+      animation: rise .3s ease
+    }
+
+    .slide.on {
+      display: block
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(8px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .bottom {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      padding: 10px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: none;
+      gap: 12px
+    }
+
+    .bottom-mid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      text-align: center
+    }
+
+    .bottom span {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    .footer-byline {
+      font-family: var(--sans);
+      font-size: 11.5px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
+      justify-content: center
+    }
+
+    .footer-byline a {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 600;
+      transition: .15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px
+    }
+
+    .footer-byline a:hover {
+      color: var(--green);
+      text-decoration: underline
+    }
+
+    @media(max-width:768px) {
+      .top {
+        padding: 8px 12px;
+        gap: 8px
+      }
+
+      .brand small {
+        display: none
+      }
+
+      .dots {
+        display: none
+      }
+
+      .top-link .label {
+        display: none
+      }
+
+      .top-link {
+        padding: 5px 8px
+      }
+
+      .bottom {
+        padding: 8px 10px;
+        gap: 6px
+      }
+
+      .bottom .btn {
+        padding: 7px 11px;
+        font-size: 13px
+      }
+
+      .footer-byline {
+        font-size: 10.5px
+      }
+    }
+
+    /* type */
+    .eye {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 6px;
+      display: block
+    }
+
+    h1 {
+      font-size: clamp(28px, 4.2vw, 44px);
+      line-height: 1.12;
+      color: var(--teal);
+      letter-spacing: -.015em;
+      margin-bottom: 12px
+    }
+
+    h2 {
+      font-size: clamp(23px, 3vw, 34px);
+      line-height: 1.16;
+      color: var(--teal);
+      margin-bottom: 8px
+    }
+
+    h3 {
+      font-size: 18px;
+      color: var(--teal);
+      margin-bottom: 6px
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 10px
+    }
+
+    .lead {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      max-width: 860px
+    }
+
+    ul {
+      padding-left: 18px
+    }
+
+    li {
+      font-size: 15px;
+      margin-bottom: 5px
+    }
+
+    .src {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: #6d8179;
+      margin-top: 8px;
+      display: block;
+      line-height: 1.45
+    }
+
+    .src a {
+      color: var(--green)
+    }
+
+    .small {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    /* blocks */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 2px 6px rgba(15, 35, 25, .05)
+    }
+
+    .card.soft {
+      background: var(--soft2);
+      border-color: #cfe3da
+    }
+
+    .card.amber {
+      background: var(--amber);
+      border-color: #f0dcb4
+    }
+
+    .card.red {
+      background: var(--red);
+      border-color: #f3cfc7
+    }
+
+    .card.blue {
+      background: var(--blue);
+      border-color: #cfdff2
+    }
+
+    .g2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 16px
+    }
+
+    .g3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin-bottom: 16px
+    }
+
+    .g4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px
+    }
+
+    .g5 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px
+    }
+
+    .chip {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 11px;
+      border-radius: 14px;
+      margin: 0 6px 6px 0;
+      background: var(--soft);
+      color: var(--teal)
+    }
+
+    .chip.r {
+      background: var(--red);
+      color: var(--redTx)
+    }
+
+    .chip.a {
+      background: var(--amber);
+      color: var(--amberTx)
+    }
+
+    .chip.b {
+      background: var(--blue);
+      color: var(--blueTx)
+    }
+
+    .big {
+      font-family: var(--sans);
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: -.03em;
+      line-height: 1
+    }
+
+    .big.sm {
+      font-size: 30px
+    }
+
+    .cap {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px
+    }
+
+    .btn {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    .btn:hover {
+      border-color: var(--teal)
+    }
+
+    .btn.p {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff
+    }
+
+    .btn.p:hover {
+      background: var(--teal)
+    }
+
+    /* flow */
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      gap: 8px;
+      margin: 14px 0 18px
+    }
+
+    .node {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      min-width: 132px;
+      flex: 1;
+      text-align: center;
+      font-family: var(--sans)
+    }
+
+    .node .ic {
+      font-size: 26px;
+      display: block;
+      margin-bottom: 4px
+    }
+
+    .node b {
+      font-size: 13px;
+      color: var(--teal);
+      display: block
+    }
+
+    .node span {
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    .node.hl {
+      background: var(--teal);
+      border-color: var(--teal)
+    }
+
+    .node.hl b,
+    .node.hl span {
+      color: #fff
+    }
+
+    .arr {
+      align-self: center;
+      color: var(--green);
+      font-weight: 700;
+      font-size: 20px;
+      font-family: var(--sans)
+    }
+
+    /* story panels */
+    .story {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+      margin-bottom: 14px
+    }
+
+    .day {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 8px
+    }
+
+    .mc {
+      background: #efeae2;
+      border-radius: 12px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-height: 190px;
+      font-family: var(--sans)
+    }
+
+    .mb {
+      font-size: 12.5px;
+      padding: 6px 9px;
+      border-radius: 8px;
+      max-width: 88%;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, .1)
+    }
+
+    .mb.o {
+      align-self: flex-end;
+      background: #d9fdd3
+    }
+
+    .mb.i {
+      align-self: flex-start;
+      background: #fff
+    }
+
+    .mb .t {
+      display: block;
+      font-size: 10px;
+      color: #667781;
+      text-align: right
+    }
+
+    /* mini phones (slide 4) */
+    .mp {
+      width: 100%;
+      max-width: 300px;
+      margin: 6px auto 10px;
+      border: 7px solid #202b28;
+      border-radius: 26px;
+      overflow: hidden;
+      background: #fff;
+      font-family: var(--sans);
+      font-size: 12px
+    }
+
+    .mp .hd {
+      padding: 9px 12px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .mp .bd {
+      padding: 10px
+    }
+
+    .mp .wa {
+      background: #efeae2;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-height: 230px
+    }
+
+    .rowl {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      border-bottom: 1px dashed #e3e3e3;
+      font-size: 12px
+    }
+
+    .warn {
+      border: 1px solid #e0807a;
+      color: #b33922;
+      border-radius: 8px;
+      padding: 8px;
+      font-size: 12px;
+      margin: 8px 0
+    }
+
+    .pill {
+      display: inline-block;
+      border: 1px solid #2f7d6c;
+      color: #1f5c4e;
+      border-radius: 14px;
+      padding: 3px 10px;
+      font-size: 11.5px;
+      margin: 3px 4px 0 0;
+      background: #fff
+    }
+
+    /* matrix */
+    .mx {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--sans);
+      font-size: 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden
+    }
+
+    .mx th {
+      background: var(--teal);
+      color: #fff;
+      padding: 11px 12px;
+      text-align: left;
+      font-size: 13px
+    }
+
+    .mx th.me {
+      background: var(--green)
+    }
+
+    .mx td {
+      padding: 11px 12px;
+      border-top: 1px solid var(--line);
+      vertical-align: middle
+    }
+
+    .mx td.q {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--teal)
+    }
+
+    .ok,
+    .no,
+    .mid {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px
+    }
+
+    .ok {
+      background: #dff3e8;
+      color: #16684a
+    }
+
+    .no {
+      background: var(--red);
+      color: var(--redTx)
+    }
+
+    .mid {
+      background: var(--amber);
+      color: var(--amberTx)
+    }
+
+    .tw {
+      overflow-x: auto
+    }
+
+    /* bars */
+    .chart-title {
+      margin-bottom: 28px
+    }
+
+    .bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 8px 0;
+      font-family: var(--sans);
+      font-size: 13px
+    }
+
+    .bar label {
+      width: 92px;
+      color: var(--muted);
+      flex: none
+    }
+
+    .track {
+      flex: 1;
+      background: #edf3f0;
+      border-radius: 8px;
+      height: 22px;
+      position: relative;
+      overflow: visible
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: 8px;
+      background: #9ccdbd;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b3d33
+    }
+
+    .fill.wa {
+      background: var(--green);
+      color: #fff;
+      min-width: 34px
+    }
+
+    .capline {
+      position: absolute;
+      top: -6px;
+      bottom: -6px;
+      left: 30%;
+      border-left: 2px dashed #c0562f;
+      z-index: 2
+    }
+
+    .capline em {
+      position: absolute;
+      bottom: calc(100% + 4px);
+      left: 2px;
+      font-style: normal;
+      font-size: 10px;
+      font-weight: 700;
+      color: #c0562f;
+      background: #fff2ed;
+      border: 1px solid #f5cfc4;
+      padding: 1px 6px;
+      border-radius: 6px;
+      white-space: nowrap;
+      line-height: 1.3
+    }
+
+    .stack {
+      display: flex;
+      height: 30px;
+      border-radius: 9px;
+      overflow: hidden;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 700;
+      margin: 8px 0
+    }
+
+    .stack div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff
+    }
+
+    /* stakeholder / generic */
+    .sh {
+      display: flex;
+      flex-direction: column;
+      gap: 6px
+    }
+
+    .sh .em {
+      font-size: 28px
+    }
+
+    .sh h3 {
+      margin: 0
+    }
+
+    .k {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px
+    }
+
+    .k.g {
+      color: var(--green)
+    }
+
+    .step {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 10px
+    }
+
+    .num {
+      flex: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .quote {
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.25;
+      color: var(--teal);
+      font-weight: 700;
+      margin: 6px 0 14px;
+      max-width: 900px
+    }
+
+    /* ---------- PROTOTYPE ---------- */
+    .proto {
+      display: grid;
+      grid-template-columns: 372px 1fr;
+      gap: 24px;
+      align-items: start;
+      margin-top: 10px
+    }
+
+    @media(max-width:880px) {
+      .proto {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 10px 0
+    }
+
+    .tab {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      cursor: pointer
+    }
+
+    .tab.on {
+      background: var(--teal);
+      color: #fff;
+      border-color: var(--teal)
+    }
+
+    .phone {
+      width: 100%;
+      max-width: 372px;
+      height: 700px;
+      margin: 0 auto;
+      border: 10px solid #1f2a27;
+      border-radius: 38px;
+      background: #fff;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      font-family: var(--sans);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, .18)
+    }
+
+    .sb {
+      flex: none;
+      height: 24px;
+      padding: 5px 16px 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff
+    }
+
+    .hdr {
+      flex: none;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 10px;
+      color: #fff
+    }
+
+    .hdr .back {
+      font-size: 20px;
+      line-height: 1;
+      cursor: default
+    }
+
+    .av {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #d4e8e1;
+      color: #0b5d4f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      flex: none
+    }
+
+    .hdr h4 {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.15
+    }
+
+    .hdr small {
+      display: block;
+      font-size: 11px;
+      opacity: .85;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 170px
+    }
+
+    .hdr .ic {
+      margin-left: auto;
+      display: flex;
+      gap: 14px;
+      font-size: 15px
+    }
+
+    .chat {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px 10px 8px;
+      background: #efeae2;
+      background-image: radial-gradient(#dcd3c6 1px, transparent 1px);
+      background-size: 15px 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px
+    }
+
+    .datechip {
+      align-self: center;
+      background: #fff;
+      color: #54656f;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, .08)
+    }
+
+    .bub {
+      position: relative;
+      max-width: 84%;
+      padding: 6px 8px 4px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.3;
+      box-shadow: 0 1px .5px rgba(11, 20, 26, .13)
+    }
+
+    .bub.out {
+      align-self: flex-end;
+      background: #d9fdd3;
+      border-top-right-radius: 0
+    }
+
+    .bub.out::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -7px;
+      border-left: 8px solid #d9fdd3;
+      border-bottom: 8px solid transparent
+    }
+
+    .bub.in {
+      align-self: flex-start;
+      background: #fff;
+      border-top-left-radius: 0
+    }
+
+    .bub.in::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -7px;
+      border-right: 8px solid #fff;
+      border-bottom: 8px solid transparent
+    }
+
+    .who {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 1px
+    }
+
+    .tm {
+      display: block;
+      text-align: right;
+      font-size: 10px;
+      color: #667781;
+      margin-top: 2px
+    }
+
+    .tick {
+      color: #53bdeb;
+      letter-spacing: -2px;
+      margin-left: 3px
+    }
+
+    .linkcard {
+      background: #f7f9f8;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 4px;
+      border-left: 4px solid var(--c, #008069)
+    }
+
+    .linkcard .a {
+      padding: 6px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--c, #008069);
+      display: flex;
+      justify-content: space-between
+    }
+
+    .linkcard .b {
+      padding: 2px 8px 7px
+    }
+
+    .linkcard .b b {
+      display: block;
+      font-size: 13px
+    }
+
+    .linkcard .b span {
+      font-size: 11.5px;
+      color: #667781
+    }
+
+    .inbar {
+      flex: none;
+      background: #efeae2;
+      padding: 6px 8px 8px;
+      display: flex;
+      gap: 6px;
+      align-items: center
+    }
+
+    .inbar .f {
+      flex: 1;
+      background: #fff;
+      border-radius: 22px;
+      padding: 9px 12px;
+      color: #8696a0;
+      font-size: 13px
+    }
+
+    .inbar .m {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #008069;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px
+    }
+
+    .lockchip {
+      align-self: center;
+      background: #fff5c4;
+      color: #54656f;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 8px
+    }
+
+    .nudge {
+      align-self: center;
+      width: 95%;
+      background: #fff;
+      border-radius: 14px;
+      padding: 11px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, .14);
+      animation: rise .3s ease
+    }
+
+    .nudge h5 {
+      font-size: 13.5px;
+      color: #111b21;
+      margin-bottom: 2px
+    }
+
+    .nudge p {
+      font-size: 12px;
+      color: #667781;
+      margin: 0 0 4px
+    }
+
+    .nb {
+      display: block;
+      width: 100%;
+      padding: 9px;
+      border-radius: 20px;
+      border: 1px solid #cfe3dc;
+      background: #fff;
+      color: #0b6b5a;
+      font-weight: 600;
+      font-size: 13px;
+      margin-top: 6px;
+      cursor: pointer;
+      font-family: inherit
+    }
+
+    .nb.p {
+      background: #008069;
+      color: #fff;
+      border-color: #008069
+    }
+
+    .nb.g {
+      border: none;
+      color: #667781;
+      font-weight: 500
+    }
+
+    .gift {
+      background: #fff3f6;
+      border: 1px solid #f4c8d4;
+      color: #9a3558;
+      font-size: 11.5px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      margin: 4px 0
+    }
+
+    .sheet {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      border-radius: 18px 18px 0 0;
+      padding: 14px;
+      box-shadow: 0 -6px 20px rgba(0, 0, 0, .2);
+      animation: up .25s ease;
+      z-index: 5
+    }
+
+    @keyframes up {
+      from {
+        transform: translateY(40px);
+        opacity: .4
+      }
+
+      to {
+        transform: none;
+        opacity: 1
+      }
+    }
+
+    .shade {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, .38);
+      z-index: 4
+    }
+
+    .sheet .grab {
+      width: 36px;
+      height: 4px;
+      border-radius: 2px;
+      background: #d0d7d4;
+      margin: -6px auto 8px
+    }
+
+    .srow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 13px;
+      cursor: pointer
+    }
+
+    .srow .l {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .cb {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      border: 2px solid #b6c4be;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #fff
+    }
+
+    .cb.on {
+      background: #008069;
+      border-color: #008069
+    }
+
+    .reqcard {
+      align-self: flex-end;
+      width: 92%;
+      background: #fff;
+      border: 1.5px solid #008069;
+      border-radius: 10px;
+      padding: 10px;
+      animation: rise .3s ease
+    }
+
+    .reqcard .t {
+      font-size: 11px;
+      font-weight: 700;
+      color: #008069;
+      letter-spacing: .03em
+    }
+
+    .reqrow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-top: 1px dashed #e1e7e4;
+      font-size: 12.5px
+    }
+
+    .stat {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 12px
+    }
+
+    .stat.pd {
+      background: #e7f6f1;
+      color: #075e54
+    }
+
+    .stat.pn {
+      background: #fff3d6;
+      color: #8a5a00
+    }
+
+    .paybtn {
+      background: #008069;
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      padding: 5px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit
+    }
+
+    .prog {
+      height: 6px;
+      border-radius: 3px;
+      background: #e6efeb;
+      margin: 8px 0 3px;
+      overflow: hidden
+    }
+
+    .prog i {
+      display: block;
+      height: 100%;
+      background: #008069;
+      transition: width .4s
+    }
+
+    .led {
+      background: #faf8f5;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 8px;
+      font-size: 12px;
+      margin: 6px 0
+    }
+
+    .led div {
+      display: flex;
+      justify-content: space-between;
+      padding: 2px 0
+    }
+
+    .led .tot {
+      border-top: 1px dashed #ccc;
+      margin-top: 4px;
+      padding-top: 5px;
+      font-weight: 700;
+      color: #075e54
+    }
+
+    .mer {
+      flex: 1;
+      background: #fff;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto
+    }
+
+    .mer .ok {
+      display: block;
+      text-align: center;
+      font-size: 40px;
+      margin: 6px 0 2px;
+      background: none;
+      padding: 0
+    }
+
+    .mbox {
+      border: 1px solid #ececec;
+      border-radius: 12px;
+      padding: 12px;
+      background: #fafafa;
+      margin: 10px 0;
+      font-size: 13px
+    }
+
+    .mbtn {
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1.5px solid var(--c);
+      color: var(--c);
+      background: #fff;
+      text-align: center;
+      cursor: pointer;
+      font-family: inherit;
+      width: 100%
+    }
+
+    .mbtn.fill {
+      background: var(--c);
+      color: #fff
+    }
+
+    .chatlist {
+      flex: 1;
+      overflow-y: auto;
+      background: #fff
+    }
+
+    .cli {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
+      border-bottom: 1px solid #f1f1f1;
+      font-size: 14px
+    }
+
+    .cli.hot {
+      background: #e9f7f2;
+      cursor: pointer
+    }
+
+    .cli.hot.sel {
+      background: #d3efe4
+    }
+
+    .cli small {
+      display: block;
+      color: #8696a0;
+      font-size: 12px
+    }
+
+    .sendbar {
+      flex: none;
+      background: #f0f2f5;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-top: 1px solid #e4e6e8
+    }
+
+    .sendbar .pv {
+      flex: 1;
+      font-size: 12px;
+      line-height: 1.3
+    }
+
+    .fab {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #008069;
+      color: #fff;
+      border: none;
+      font-size: 18px;
+      cursor: pointer
+    }
+
+    .apps {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding: 8px 2px 4px
+    }
+
+    .app {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: #444;
+      min-width: 54px
+    }
+
+    .app i {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-style: normal;
+      font-size: 20px;
+      background: #eef1f0
+    }
+
+    .app.wa i {
+      background: #25d366;
+      color: #fff;
+      box-shadow: 0 0 0 4px rgba(37, 211, 102, .25);
+      animation: pulse 1.4s infinite
+    }
+
+    .app.wa {
+      cursor: pointer;
+      color: #075e54;
+      font-weight: 700
+    }
+
+    @keyframes pulse {
+      50% {
+        box-shadow: 0 0 0 8px rgba(37, 211, 102, .1)
+      }
+    }
+
+    .pinp {
+      text-align: center
+    }
+
+    .pind {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin: 12px 0
+    }
+
+    .pind i {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid #9aa9a3
+    }
+
+    .pind i.f {
+      background: #075e54;
+      border-color: #075e54
+    }
+
+    .toast {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 64px;
+      background: #111b21;
+      color: #fff;
+      font-size: 12px;
+      padding: 9px 12px;
+      border-radius: 10px;
+      z-index: 8;
+      animation: rise .25s ease
+    }
+
+    .pips {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 10px
+    }
+
+    .pips i {
+      flex: 1;
+      height: 5px;
+      border-radius: 3px;
+      background: var(--line)
+    }
+
+    .pips i.d {
+      background: var(--green)
+    }
+
+    .pipl {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--sans);
+      font-size: 10.5px;
+      color: var(--muted);
+      margin-bottom: 12px
+    }
+
+    .fld {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-family: var(--sans);
+      font-size: 13px;
+      padding: 5px 0;
+      border-bottom: 1px dashed var(--line)
+    }
+
+    .fld span:first-child {
+      color: var(--muted)
+    }
+
+    .fld span:last-child {
+      font-weight: 600;
+      text-align: right
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="top">
-  <div class="brand">Split it where you share it<small>WhatsApp Pay · product thesis</small></div>
-  <div class="dots" id="dots"></div>
-  <div class="top-actions">
-    <span class="count" id="count">1 / 15</span>
-    <a class="top-link" href="https://github.com/pavitrapoojary/whatsapp-new-feature" target="_blank" rel="noopener" title="GitHub Repository">
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-      <span class="label">GitHub</span>
-    </a>
-    <a class="top-link" href="https://pavitra-poojary.vercel.app/" target="_blank" rel="noopener" title="Made with curiosity by Pavitra Poojary">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      <span class="label">Portfolio ↗</span>
-    </a>
-  </div>
-</div>
-
-<div class="view" id="view">
-
-<!-- 1 · TITLE -->
-<section class="slide on">
-  <span class="eye">Product thesis · WhatsApp Pay</span>
-  <h1>The booking is shared in WhatsApp.<br>The payment should start there too.</h1>
-  <p class="lead">We already pay the shop in Google Pay or PhonePe. But the money friends owe each other after a movie, a grocery order or a gift is chased by hand. WhatsApp can fix that without a new button or a new app.</p>
-
-  <div class="flow">
-    <div class="node"><span class="ic">🎟️</span><b>Book anywhere</b><span>BookMyShow, Blinkit, Amazon</span></div><div class="arr">→</div>
-    <div class="node"><span class="ic">📤</span><b>Tap the usual Share</b><span>Nothing new in the app</span></div><div class="arr">→</div>
-    <div class="node hl"><span class="ic">💬</span><b>WhatsApp sees the booking</b><span>App, item, amount, date</span></div><div class="arr">→</div>
-    <div class="node"><span class="ic">🔒</span><b>Private nudge</b><span>"Split this?"</span></div><div class="arr">→</div>
-    <div class="node"><span class="ic">✅</span><b>Paid in the chat</b><span>One tap, UPI</span></div>
+  <div class="top">
+    <div class="brand">Split it where you share it<small>WhatsApp Pay · product thesis</small></div>
+    <div class="dots" id="dots"></div>
+    <div class="top-actions">
+      <span class="count" id="count">1 / 15</span>
+      <a class="top-link" href="https://github.com/pavitrapoojary/whatsapp-new-feature" target="_blank" rel="noopener"
+        title="GitHub Repository">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+        </svg>
+        <span class="label">GitHub</span>
+      </a>
+      <a class="top-link" href="https://pavitra-poojary.vercel.app/" target="_blank" rel="noopener"
+        title="Made with curiosity by Pavitra Poojary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+        <span class="label">Portfolio ↗</span>
+      </a>
+    </div>
   </div>
 
-  <div class="g3">
-    <div class="card soft"><div class="big">0</div><div class="cap">new buttons in merchant apps</div></div>
-    <div class="card soft"><div class="big">0</div><div class="cap">extra apps for friends to install</div></div>
-    <div class="card soft"><div class="big">2</div><div class="cap">extra taps to split once you have shared</div></div>
-  </div>
+  <div class="view" id="view">
 
-  <div style="display:flex;gap:12px;flex-wrap:wrap">
-    <button class="btn p" onclick="goTo(8)">▶ Try the live prototype</button>
-    <a class="btn" href="https://whatsapp-pay-gray.vercel.app/" target="_blank" rel="noopener">Original conversation prototype ↗</a>
-    <a class="btn" href="https://github.com/pavitrapoojary/whatsapp-new-feature" target="_blank" rel="noopener">GitHub Repo ↗</a>
-  </div>
-  <span class="src">All screens are illustrative mockups. Brand names are used only to show how the idea would feel.</span>
-</section>
+    <!-- 1 · TITLE -->
+    <section class="slide on">
+      <span class="eye">Product thesis · WhatsApp Pay</span>
+      <h1>The booking is shared in WhatsApp.<br>The payment should start there too.</h1>
+      <p class="lead">We already pay the shop in Google Pay or PhonePe. But the money friends owe each other after a
+        movie, a grocery order or a gift is chased by hand. WhatsApp can fix that without a new button or a new app.</p>
 
-<!-- 2 · STORY -->
-<section class="slide">
-  <span class="eye">A story we have all lived</span>
-  <h2>₹300 is too small to chase and too big to forget</h2>
-  <p class="lead">Four friends. One movie. One person pays.</p>
-  <div class="story">
-    <div class="card">
-      <div class="day">Day 0 · Friday</div>
-      <div class="mc">
-        <div class="mb o">📷 ticket.png<span class="t">7:15 PM ✓✓</span></div>
-        <div class="mb o">Booked! ₹1,200 total<span class="t">7:15 PM ✓✓</span></div>
-        <div class="mb i">Awesome 🔥<span class="t">7:16 PM</span></div>
+      <div class="flow">
+        <div class="node"><span class="ic">🎟️</span><b>Book anywhere</b><span>BookMyShow, Blinkit, Amazon</span></div>
+        <div class="arr">→</div>
+        <div class="node"><span class="ic">📤</span><b>Tap the usual Share</b><span>Nothing new in the app</span></div>
+        <div class="arr">→</div>
+        <div class="node hl"><span class="ic">💬</span><b>WhatsApp sees the booking</b><span>App, item, amount,
+            date</span></div>
+        <div class="arr">→</div>
+        <div class="node"><span class="ic">🔒</span><b>Private nudge</b><span>"Split this?"</span></div>
+        <div class="arr">→</div>
+        <div class="node"><span class="ic">✅</span><b>Paid in the chat</b><span>One tap, UPI</span></div>
       </div>
-      <p class="small" style="margin-top:8px">You paid the full amount. Screenshot goes to the group.</p>
-    </div>
-    <div class="card">
-      <div class="day">Day 1 · Saturday</div>
-      <div class="mc">
-        <div class="mb o">Guys, ₹300 each 🙏<span class="t">9:02 AM ✓✓</span></div>
-        <div class="mb i">will do tmrw 😅<span class="t">9:40 AM</span></div>
-        <div class="mb i">send me your UPI id<span class="t">9:41 AM</span></div>
-      </div>
-      <p class="small" style="margin-top:8px">You do the maths, type the message and answer every reply.</p>
-    </div>
-    <div class="card" style="background:var(--red);border-color:#f3cfc7">
-      <div class="day" style="color:var(--redTx)">Day 14 · Two weeks later</div>
-      <div class="mc">
-        <div class="mb o">Hey, ₹300 pending 🙂<span class="t">8:10 PM ✓✓</span></div>
-        <div class="mb i">oh sorry, forgot!<span class="t">8:50 PM</span></div>
-        <div class="mb o" style="opacity:.6">… (nothing)<span class="t">Day 20</span></div>
-      </div>
-      <p class="small" style="margin-top:8px">You feel cheap asking again. Often you let it go.</p>
-    </div>
-  </div>
-  <span class="chip r">Manual maths</span><span class="chip r">Awkward to ask</span><span class="chip r">Nothing is tracked</span><span class="chip r">Payment is in another app</span>
-  <div class="card soft" style="margin-top:10px"><b>In one line:</b> the conversation happens in WhatsApp, but the money happens somewhere else, so the debt falls through the gap.</div>
-</section>
 
-<!-- 3 · PROBLEM -->
-<section class="slide">
-  <span class="eye">Problem and proof</span>
-  <h2>Is this a real problem? The signals say yes</h2>
-  <div class="g2">
-    <div class="card">
-      <h3>Problem statement</h3>
-      <div class="step"><div class="num">1</div><div><div class="k g">Who</div>Friends, flatmates and colleagues who book or order together and one person pays.</div></div>
-      <div class="step"><div class="num">2</div><div><div class="k g">Problem</div>The payer fronts the money, does the maths and chases friends, which feels awkward.</div></div>
-      <div class="step"><div class="num">3</div><div><div class="k g">Why it stays unsolved</div>Chat is in WhatsApp. Splitting is in another app. Paying is in a third.</div></div>
-      <div class="step"><div class="num">4</div><div><div class="k g">What we want</div>The split starts the moment the booking lands in the chat.</div></div>
-    </div>
-    <div>
-      <div class="g2" style="margin-bottom:12px">
-        <div class="card soft"><div class="big sm">~37%</div><div class="cap">of UPI transactions are person to person (Feb 2026), about 7.6 billion of 20.4 billion</div></div>
-        <div class="card soft"><div class="big sm">₹149</div><div class="cap">per month: what Splitwise Pro costs in India. People do pay to split bills</div></div>
-        <div class="card soft"><div class="big sm">3–4</div><div class="cap">free Splitwise entries a day, per user reports. Many complain it is too few</div></div>
-        <div class="card soft"><div class="big sm">500M+</div><div class="cap">WhatsApp users in India, per Meta as reported in Dec 2024</div></div>
-      </div>
-      <span class="src">P2P includes rent, family and gifts, not only splits, so read it as "this is a big habit", not "this is the market". Sources: <a href="https://meetanshi.com/blog/upi-statistics/" target="_blank" rel="noopener">UPI stats (NPCI data)</a> · <a href="https://www.itvoice.in/splitwise-has-introduced-restrictions-on-the-number-of-free-expenses-users-can-add" target="_blank" rel="noopener">IT Voice</a> · <a href="https://ie.trustpilot.com/review/splitwise.com?page=2" target="_blank" rel="noopener">Trustpilot reviews</a> · <a href="https://richautomate.in/blog/whatsapp-users-india-2026-statistics" target="_blank" rel="noopener">WhatsApp India stats</a></span>
-    </div>
-  </div>
-</section>
-
-<!-- 4 · TODAY -->
-<section class="slide">
-  <span class="eye">What happens today</span>
-  <h2>Splitwise vs WhatsApp vs my idea</h2>
-  <p class="lead">Same ₹1,200 movie, three ways.</p>
-  <div class="g3">
-    <div class="card">
-      <h3>① Splitwise today</h3>
-      <div class="mp">
-        <div class="hd" style="background:#84c4aa">Splitwise</div>
-        <div class="bd">
-          <div class="rowl"><span>Movie tickets</span><b>₹1,200</b></div>
-          <div class="rowl"><span>Paid by you</span><span>split 4</span></div>
-          <div class="warn">⚠ Daily limit reached. Upgrade to Pro ₹149/mo</div>
-          <div class="small" style="font-size:12px">Re-type amount, pick group, then friends must open the app too.</div>
+      <div class="g3">
+        <div class="card soft">
+          <div class="big">0</div>
+          <div class="cap">new buttons in merchant apps</div>
+        </div>
+        <div class="card soft">
+          <div class="big">0</div>
+          <div class="cap">extra apps for friends to install</div>
+        </div>
+        <div class="card soft">
+          <div class="big">2</div>
+          <div class="cap">extra taps to split once you have shared</div>
         </div>
       </div>
-      <span class="chip r">Install</span><span class="chip r">Re-type</span><span class="chip r">Limit</span>
-    </div>
-    <div class="card">
-      <h3>② WhatsApp today</h3>
-      <div class="mp">
-        <div class="hd" style="background:#2d5d52"><span style="background:#cfe3dc;color:#2d5d52;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center">F</span>Friends 🍿</div>
-        <div class="wa">
-          <div class="mb o" style="font-size:12px">📷 ticket.png<br>Booked! 1200 total</div>
-          <div class="mb i">cool 👍</div>
-          <div class="mb i">send me my share na</div>
-          <div class="mb o">will do tmrw 😅</div>
-          <div class="mb i">…2 weeks later: bro?</div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <button class="btn p" onclick="goTo(8)">▶ Try the live prototype</button>
+        <a class="btn" href="https://whatsapp-pay-gray.vercel.app/" target="_blank" rel="noopener">Original conversation
+          prototype ↗</a>
+        <a class="btn" href="https://github.com/pavitrapoojary/whatsapp-new-feature" target="_blank"
+          rel="noopener">GitHub Repo ↗</a>
+      </div>
+      <span class="src">All screens are illustrative mockups. Brand names are used only to show how the idea would
+        feel.</span>
+    </section>
+
+    <!-- 2 · STORY -->
+    <section class="slide">
+      <span class="eye">A story we have all lived</span>
+      <h2>₹300 is too small to chase and too big to forget</h2>
+      <p class="lead">Four friends. One movie. One person pays.</p>
+      <div class="story">
+        <div class="card">
+          <div class="day">Day 0 · Friday</div>
+          <div class="mc">
+            <div class="mb o">📷 ticket.png<span class="t">7:15 PM ✓✓</span></div>
+            <div class="mb o">Booked! ₹1,200 total<span class="t">7:15 PM ✓✓</span></div>
+            <div class="mb i">Awesome 🔥<span class="t">7:16 PM</span></div>
+          </div>
+          <p class="small" style="margin-top:8px">You paid the full amount. Screenshot goes to the group.</p>
+        </div>
+        <div class="card">
+          <div class="day">Day 1 · Saturday</div>
+          <div class="mc">
+            <div class="mb o">Guys, ₹300 each 🙏<span class="t">9:02 AM ✓✓</span></div>
+            <div class="mb i">will do tmrw 😅<span class="t">9:40 AM</span></div>
+            <div class="mb i">send me your UPI id<span class="t">9:41 AM</span></div>
+          </div>
+          <p class="small" style="margin-top:8px">You do the maths, type the message and answer every reply.</p>
+        </div>
+        <div class="card" style="background:var(--red);border-color:#f3cfc7">
+          <div class="day" style="color:var(--redTx)">Day 14 · Two weeks later</div>
+          <div class="mc">
+            <div class="mb o">Hey, ₹300 pending 🙂<span class="t">8:10 PM ✓✓</span></div>
+            <div class="mb i">oh sorry, forgot!<span class="t">8:50 PM</span></div>
+            <div class="mb o" style="opacity:.6">… (nothing)<span class="t">Day 20</span></div>
+          </div>
+          <p class="small" style="margin-top:8px">You feel cheap asking again. Often you let it go.</p>
         </div>
       </div>
-      <span class="chip r">Manual maths</span><span class="chip r">Awkward</span><span class="chip r">No record</span>
-    </div>
-    <div class="card soft">
-      <h3>③ Same Share, WhatsApp reads it</h3>
-      <div class="mp">
-        <div class="hd" style="background:#2d5d52"><span style="background:#cfe3dc;color:#2d5d52;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center">F</span>Friends 🍿</div>
-        <div class="wa">
-          <div class="mb o" style="padding:0;overflow:hidden;width:150px"><div style="background:#c8404d;color:#fff;font-weight:700;padding:5px 8px;font-size:12px">BookMyShow</div><div style="padding:5px 8px"><b>Dune 3 · 4 seats</b><br><span style="color:#667781">Sat 7 PM · ₹1,200</span></div></div>
-          <div style="background:#fff;border:1px solid #2f7d6c;border-radius:10px;padding:8px;font-size:12px">🔒 Split ₹1,200 with 4?<br><span class="pill">Split ₹300 each</span><span class="pill">Monthly digest</span></div>
+      <span class="chip r">Manual maths</span><span class="chip r">Awkward to ask</span><span class="chip r">Nothing is
+        tracked</span><span class="chip r">Payment is in another app</span>
+      <div class="card soft" style="margin-top:10px"><b>In one line:</b> the conversation happens in WhatsApp, but the
+        money happens somewhere else, so the debt falls through the gap.</div>
+    </section>
+
+    <!-- 3 · PROBLEM -->
+    <section class="slide">
+      <span class="eye">Problem and proof</span>
+      <h2>Is this a real problem? The signals say yes</h2>
+      <div class="g2">
+        <div class="card">
+          <h3>Problem statement</h3>
+          <div class="step">
+            <div class="num">1</div>
+            <div>
+              <div class="k g">Who</div>Friends, flatmates and colleagues who book or order together and one person
+              pays.
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <div>
+              <div class="k g">Problem</div>The payer fronts the money, does the maths and chases friends, which feels
+              awkward.
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <div>
+              <div class="k g">Why it stays unsolved</div>Chat is in WhatsApp. Splitting is in another app. Paying is in
+              a third.
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">4</div>
+            <div>
+              <div class="k g">What we want</div>The split starts the moment the booking lands in the chat.
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="g2" style="margin-bottom:12px">
+            <div class="card soft">
+              <div class="big sm">~37%</div>
+              <div class="cap">of UPI transactions are person to person (Feb 2026), about 7.6 billion of 20.4 billion
+              </div>
+            </div>
+            <div class="card soft">
+              <div class="big sm">₹149</div>
+              <div class="cap">per month: what Splitwise Pro costs in India. People do pay to split bills</div>
+            </div>
+            <div class="card soft">
+              <div class="big sm">3–4</div>
+              <div class="cap">free Splitwise entries a day, per user reports. Many complain it is too few</div>
+            </div>
+            <div class="card soft">
+              <div class="big sm">500M+</div>
+              <div class="cap">WhatsApp users in India, per Meta as reported in Dec 2024</div>
+            </div>
+          </div>
+          <span class="src">P2P includes rent, family and gifts, not only splits, so read it as "this is a big habit",
+            not "this is the market". Sources: <a href="https://meetanshi.com/blog/upi-statistics/" target="_blank"
+              rel="noopener">UPI stats (NPCI data)</a> · <a
+              href="https://www.itvoice.in/splitwise-has-introduced-restrictions-on-the-number-of-free-expenses-users-can-add"
+              target="_blank" rel="noopener">IT Voice</a> · <a
+              href="https://ie.trustpilot.com/review/splitwise.com?page=2" target="_blank" rel="noopener">Trustpilot
+              reviews</a> · <a href="https://richautomate.in/blog/whatsapp-users-india-2026-statistics" target="_blank"
+              rel="noopener">WhatsApp India stats</a></span>
         </div>
       </div>
-      <span class="chip">0 installs</span><span class="chip">0 new buttons</span><span class="chip">2 taps</span>
+    </section>
+
+    <!-- 4 · TODAY -->
+    <section class="slide">
+      <span class="eye">What happens today</span>
+      <h2>Splitwise vs WhatsApp vs my idea</h2>
+      <p class="lead">Same ₹1,200 movie, three ways.</p>
+      <div class="g3">
+        <div class="card">
+          <h3>① Splitwise today</h3>
+          <div class="mp">
+            <div class="hd" style="background:#84c4aa">Splitwise</div>
+            <div class="bd">
+              <div class="rowl"><span>Movie tickets</span><b>₹1,200</b></div>
+              <div class="rowl"><span>Paid by you</span><span>split 4</span></div>
+              <div class="warn">⚠ Daily limit reached. Upgrade to Pro ₹149/mo</div>
+              <div class="small" style="font-size:12px">Re-type amount, pick group, then friends must open the app too.
+              </div>
+            </div>
+          </div>
+          <span class="chip r">Install</span><span class="chip r">Re-type</span><span class="chip r">Limit</span>
+        </div>
+        <div class="card">
+          <h3>② WhatsApp today</h3>
+          <div class="mp">
+            <div class="hd" style="background:#2d5d52"><span
+                style="background:#cfe3dc;color:#2d5d52;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center">F</span>Friends
+              🍿</div>
+            <div class="wa">
+              <div class="mb o" style="font-size:12px">📷 ticket.png<br>Booked! 1200 total</div>
+              <div class="mb i">cool 👍</div>
+              <div class="mb i">send me my share na</div>
+              <div class="mb o">will do tmrw 😅</div>
+              <div class="mb i">…2 weeks later: bro?</div>
+            </div>
+          </div>
+          <span class="chip r">Manual maths</span><span class="chip r">Awkward</span><span class="chip r">No
+            record</span>
+        </div>
+        <div class="card soft">
+          <h3>③ Same Share, WhatsApp reads it</h3>
+          <div class="mp">
+            <div class="hd" style="background:#2d5d52"><span
+                style="background:#cfe3dc;color:#2d5d52;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center">F</span>Friends
+              🍿</div>
+            <div class="wa">
+              <div class="mb o" style="padding:0;overflow:hidden;width:150px">
+                <div style="background:#c8404d;color:#fff;font-weight:700;padding:5px 8px;font-size:12px">BookMyShow
+                </div>
+                <div style="padding:5px 8px"><b>Dune 3 · 4 seats</b><br><span style="color:#667781">Sat 7 PM ·
+                    ₹1,200</span></div>
+              </div>
+              <div style="background:#fff;border:1px solid #2f7d6c;border-radius:10px;padding:8px;font-size:12px">🔒
+                Split ₹1,200 with 4?<br><span class="pill">Split ₹300 each</span><span class="pill">Monthly
+                  digest</span></div>
+            </div>
+          </div>
+          <span class="chip">0 installs</span><span class="chip">0 new buttons</span><span class="chip">2 taps</span>
+        </div>
+      </div>
+      <span class="src">Splitwise Pro price (₹149/month, ₹999/year): <a
+          href="https://www.itvoice.in/splitwise-has-introduced-restrictions-on-the-number-of-free-expenses-users-can-add"
+          target="_blank" rel="noopener">IT Voice</a>. The 3–4 entries a day limit is reported by users, Splitwise does
+        not publish it: <a href="https://ie.trustpilot.com/review/splitwise.com?page=2" target="_blank"
+          rel="noopener">Trustpilot</a>. Mockups are illustrative.</span>
+    </section>
+
+    <!-- 5 · SCORECARD -->
+    <section class="slide">
+      <span class="eye">Side by side</span>
+      <h2>Why the chat is the right place to split</h2>
+      <div class="tw">
+        <table class="mx">
+          <tr>
+            <th>The same movie, split…</th>
+            <th>Splitwise</th>
+            <th>WhatsApp today</th>
+            <th class="me">This idea</th>
+          </tr>
+          <tr>
+            <td class="q">Re-type the amount?</td>
+            <td><span class="no">Yes</span></td>
+            <td><span class="no">Yes, in a message</span></td>
+            <td><span class="ok">No, it comes with Share</span></td>
+          </tr>
+          <tr>
+            <td class="q">Do friends need another app?</td>
+            <td><span class="no">Yes, sign up</span></td>
+            <td><span class="ok">No</span></td>
+            <td><span class="ok">No</span></td>
+          </tr>
+          <tr>
+            <td class="q">Pay in the same place?</td>
+            <td><span class="no">No, settles outside</span></td>
+            <td><span class="no">No, switch to a UPI app</span></td>
+            <td><span class="ok">Yes, in the chat</span></td>
+          </tr>
+          <tr>
+            <td class="q">Who keeps the record?</td>
+            <td><span class="ok">The app</span></td>
+            <td><span class="no">Nobody</span></td>
+            <td><span class="ok">The chat shows paid / pending</span></td>
+          </tr>
+          <tr>
+            <td class="q">Free use limit</td>
+            <td><span class="mid">3–4 entries/day</span></td>
+            <td><span class="ok">None</span></td>
+            <td><span class="ok">None planned</span></td>
+          </tr>
+          <tr>
+            <td class="q">Reminding a friend</td>
+            <td><span class="mid">App notification</span></td>
+            <td><span class="no">Public, awkward</span></td>
+            <td><span class="ok">Private, polite</span></td>
+          </tr>
+        </table>
+      </div>
+      <span class="src">Splitwise's own India payment link is Paytm only: <a
+          href="https://apps.apple.com/pl/app/id458023433" target="_blank" rel="noopener">App Store listing</a>.
+        Everyone-must-sign-up claim: <a href="https://www.kittysplit.com/es/splitwise-alternative" target="_blank"
+          rel="noopener">a competitor's comparison, so read with care</a>. Daily limits in India: <a
+          href="https://tricount.com/blog/top-splitwise-alternatives-in-india-2025-which-app-should-you-switch-to"
+          target="_blank" rel="noopener">Tricount comparison</a>.</span>
+    </section>
+
+    <!-- 6 · SPLITWISE PRESSURE -->
+    <section class="slide">
+      <span class="eye">Why Splitwise would have to change</span>
+      <h2>Splitwise keeps the ledger. It does not own the chat or the payment</h2>
+      <div class="g4">
+        <div class="card red sh">
+          <div class="em">🚧</div>
+          <h3>A daily cap</h3><span class="small">3–4 free entries a day. A trip or a month-end hits the wall
+            fast.</span>
+        </div>
+        <div class="card red sh">
+          <div class="em">💳</div>
+          <h3>A price</h3><span class="small">₹149 a month or ₹999 a year in India, for what a chat can do for
+            free.</span>
+        </div>
+        <div class="card red sh">
+          <div class="em">📲</div>
+          <h3>Everyone installs</h3><span class="small">The group only works if every friend joins the app.</span>
+        </div>
+        <div class="card red sh">
+          <div class="em">↗️</div>
+          <h3>Pay somewhere else</h3><span class="small">It tracks who owes. The actual UPI payment happens in another
+            app.</span>
+        </div>
+      </div>
+      <div class="g2">
+        <div class="card soft">
+          <h3>My view</h3>
+          <ul>
+            <li>Splitting is becoming a <b>feature of chat and payments</b>, not a product on its own.</li>
+            <li>Splitwise would have to <b>add UPI payments and live inside chats</b>, or lose the everyday small
+              splits.</li>
+            <li>It keeps its strength in <b>long trips, many currencies, complex shares</b>.</li>
+          </ul>
+        </div>
+        <div class="card amber">
+          <h3>Fair counterpoint</h3>
+          <ul>
+            <li>Splitwise also shows up in the Share sheet and has years of history in people's groups.</li>
+            <li>WhatsApp Pay is still a small player in UPI. It must earn trust on basics first.</li>
+            <li>So this is an <b>opinion to test</b>, not a certainty.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · HOW IT WORKS -->
+    <section class="slide">
+      <span class="eye">How it works</span>
+      <h2>Same Share button. WhatsApp reads what comes with it</h2>
+      <div class="g2">
+        <div class="card">
+          <div class="step">
+            <div class="num">1</div>
+            <div><b>You book</b> in any app and pay the shop the usual way.</div>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <div><b>You tap Share</b> and choose WhatsApp, as always.</div>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <div><b>WhatsApp notices</b> a booking or bill and a private card appears for you only.</div>
+          </div>
+          <div class="step">
+            <div class="num">4</div>
+            <div><b>You pick</b> Split now, Add to monthly digest, or Not now.</div>
+          </div>
+          <div class="step">
+            <div class="num">5</div>
+            <div><b>Friends tap Pay</b> inside the chat. Paid ✓ shows up live.</div>
+          </div>
+        </div>
+        <div class="card soft">
+          <h3>What WhatsApp picks up</h3>
+          <div class="fld"><span>App</span><span>BookMyShow</span></div>
+          <div class="fld"><span>What</span><span>Dune 3 · 4 seats</span></div>
+          <div class="fld"><span>When</span><span>Sat 31 Oct, 7 PM</span></div>
+          <div class="fld"><span>How much</span><span>₹1,200</span></div>
+          <div class="fld"><span>Who is in the chat</span><span>You, Aarav, Meera, Kabir</span></div>
+          <p class="small" style="margin-top:10px">That is enough to say: "Split ₹1,200 four ways?"</p>
+        </div>
+      </div>
+      <div class="g2">
+        <div class="card blue">
+          <h3>Way 1 · Day one</h3>
+          <p style="margin:0">WhatsApp reads what you just shared (screenshot, PDF or text) on your phone and asks you
+            to confirm. <b>Merchants do nothing.</b></p>
+        </div>
+        <div class="card blue">
+          <h3>Way 2 · Later</h3>
+          <p style="margin:0">Merchants send the booking details along with the same Share. More accurate, no screenshot
+            reading. <b>Still no new button.</b></p>
+        </div>
+      </div>
+      <div class="card amber"><b>Honest note:</b> today a Share carries text, links and files, so Way 1 comes first. Way
+        2 needs merchants to join once the habit is proven.</div>
+    </section>
+
+    <!-- 8 · MANY APPS -->
+    <section class="slide">
+      <span class="eye">One habit, many apps</span>
+      <h2>Different bookings, different smart nudges</h2>
+      <div class="g4">
+        <div class="card sh">
+          <div class="em">🎬</div>
+          <h3>BookMyShow</h3><span class="chip">Split now</span><span class="small">One-off outing. ₹1,200 ÷ 4 = ₹300
+            each.</span>
+        </div>
+        <div class="card sh">
+          <div class="em">⚡</div>
+          <h3>Blinkit</h3><span class="chip a">Monthly digest</span><span class="small">Flatmates buy often. Add to a
+            running tally, settle once a month.</span>
+        </div>
+        <div class="card sh">
+          <div class="em">📦</div>
+          <h3>Amazon gift</h3><span class="chip b">Surprise-safe</span><span class="small">Sees "Gift for Riya". Leaves
+            her out and sends requests privately.</span>
+        </div>
+        <div class="card sh">
+          <div class="em">🍜</div>
+          <h3>Swiggy, 1:1</h3><span class="chip">Two people</span><span class="small">Dinner with one friend. ₹1,180 ÷ 2
+            = ₹590.</span>
+        </div>
+      </div>
+      <div class="card soft"><b>Same flow works for:</b> &nbsp;<span class="chip">Zepto</span><span
+          class="chip">Zomato</span><span class="chip">Uber</span><span class="chip">MakeMyTrip</span><span
+          class="chip">IRCTC</span><span class="chip">Airbnb</span><span class="chip">Urban Company</span><span
+          class="chip">Electricity bill</span></div>
+      <div style="margin-top:14px"><button class="btn p" onclick="goTo(8)">▶ Try all four in the prototype</button>
+      </div>
+    </section>
+
+    <!-- 9 · PROTOTYPE -->
+    <section class="slide">
+      <span class="eye">Live prototype</span>
+      <h2>Try it: book, share, split, paid</h2>
+      <p class="lead" style="margin-bottom:4px">Notice the merchant app: only the normal Share button. Tap through the
+        phone on the left.</p>
+      <div class="tabs" id="tabs"></div>
+      <div class="proto">
+        <div class="phone" id="phone"></div>
+        <div id="side"></div>
+      </div>
+    </section>
+
+    <!-- 10 · WHY NOW -->
+    <section class="slide">
+      <span class="eye">Why now</span>
+      <h2>UPI is huge. WhatsApp Pay is small but growing</h2>
+      <div class="g4">
+        <div class="card">
+          <div class="big sm">24.07B</div>
+          <div class="cap">UPI transactions in Sep 2026, up 23% in a year</div>
+        </div>
+        <div class="card">
+          <div class="big sm">167.9M</div>
+          <div class="cap">WhatsApp Pay transactions in Jul 2026</div>
+        </div>
+        <div class="card">
+          <div class="big sm">2.25×</div>
+          <div class="cap">WhatsApp Pay vs Jul 2025 (74.6M)</div>
+        </div>
+        <div class="card amber">
+          <div class="big sm">~0.7%</div>
+          <div class="cap">WhatsApp Pay share of UPI volume, Jul 2026 (was under 0.4% in Jun 2025)</div>
+        </div>
+      </div>
+      <div class="g2">
+        <div class="card">
+          <h3 class="chart-title">Who holds UPI volume (Aug 2026)</h3>
+          <div class="bar"><label>PhonePe</label>
+            <div class="track">
+              <div class="fill" style="width:45.64%">45.6%</div>
+              <div class="capline"><em>30% cap</em></div>
+            </div>
+          </div>
+          <div class="bar"><label>Google Pay</label>
+            <div class="track">
+              <div class="fill" style="width:32.26%">32.3%</div>
+            </div>
+          </div>
+          <div class="bar"><label>Paytm</label>
+            <div class="track">
+              <div class="fill" style="width:8.03%">8%</div>
+            </div>
+          </div>
+          <div class="bar"><label>WhatsApp Pay</label>
+            <div class="track">
+              <div class="fill wa" style="width:2%">0.7%</div>
+            </div>
+          </div>
+          <span class="src">Aug 2026 app shares: <a href="https://startuptalky.com/upi-transactions-september-2026/"
+              target="_blank" rel="noopener">StartupTalky</a>. WhatsApp Pay is July 2026 (167.89M of 23.66B): <a
+              href="https://www.outlookmoney.com/banking/whatsapp-pay-upi-value-more-than-doubles-from-last-year-to-rs-12957-crore-in-july"
+              target="_blank" rel="noopener">Outlook Money</a>, <a
+              href="https://thelogicalindian.com/whatsapp-pay-upi-growth-july-2026-122536/" target="_blank"
+              rel="noopener">The Logical Indian</a>. Sep 2026 total: <a
+              href="https://fintechbiznews.com/fintech-digital-payment-/upi-txn-volume-value-fell-in-sept26-aeps-imps-volume-too-down"
+              target="_blank" rel="noopener">FinTech BizNews</a>. Jun 2025 share: <a
+              href="https://www.outlookbusiness.com/news/whatsapp-pay-sees-muted-17-rise-in-upi-volumes-post-cap-removal"
+              target="_blank" rel="noopener">Outlook Business</a>.</span>
+        </div>
+        <div class="card">
+          <h3>Where the money moves (Feb 2026, UPI volume)</h3>
+          <div class="stack">
+            <div style="width:37.3%;background:#008069">Person to person 37%</div>
+            <div style="width:62.7%;background:#8fb7aa">Person to merchant 63%</div>
+          </div>
+          <p class="small">The shop counter belongs to PhonePe and Google Pay. The friend-to-friend 37% starts in a
+            chat.</p>
+          <div class="card amber" style="margin-top:8px"><b>The 30% rule:</b> NPCI wants no single app above 30% of UPI
+            volume by 31 Dec 2026. Apps over the limit must stop onboarding new users. The deadline has been extended
+            before, so this is a tailwind, not a plan.</div>
+          <span class="src"><a href="https://meetanshi.com/blog/upi-statistics/" target="_blank" rel="noopener">UPI
+              stats</a> · <a
+              href="https://www.businesstoday.in/tech-today/news/story/npci-extends-30-upi-market-share-cap-deadline-on-3rd-party-apps-to-december-2026-459171-2024-12-31"
+              target="_blank" rel="noopener">Business Today</a> · <a
+              href="https://www.drishtiias.com/daily-updates/daily-news-analysis/npci-extends-market-cap-deadline-for-upi-apps/print_manually"
+              target="_blank" rel="noopener">Drishti IAS</a></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · STAKEHOLDERS -->
+    <section class="slide">
+      <span class="eye">Stakeholders</span>
+      <h2>Who gains, and how we would know</h2>
+      <div class="g5">
+        <div class="card sh">
+          <div class="em">🧑‍💼</div>
+          <h3>The payer</h3>
+          <div class="k">Today</div><span class="small">Fronts money, does maths, chases</span>
+          <div class="k g">Gets</div><span class="small">Money back without asking</span>
+          <div class="k">We watch</div><span class="small">Share repaid within a day</span>
+        </div>
+        <div class="card sh">
+          <div class="em">🧑‍🤝‍🧑</div>
+          <h3>Friends</h3>
+          <div class="k">Today</div><span class="small">Find details, switch apps, type amounts</span>
+          <div class="k g">Get</div><span class="small">Exact amount, one tap to pay</span>
+          <div class="k">We watch</div><span class="small">Time from request to paid</span>
+        </div>
+        <div class="card sh">
+          <div class="em">🏪</div>
+          <h3>Merchants</h3>
+          <div class="k">Today</div><span class="small">Shared booking is a dead-end screenshot</span>
+          <div class="k g">Get</div><span class="small">A rich card in chats that friends can tap to book too</span>
+          <div class="k">We watch</div><span class="small">Taps from shared cards to the app</span>
+        </div>
+        <div class="card sh">
+          <div class="em">💬</div>
+          <h3>WhatsApp / Meta</h3>
+          <div class="k">Today</div><span class="small">Huge reach, ~0.7% of UPI</span>
+          <div class="k g">Gets</div><span class="small">A frequent, habit-forming use of Pay</span>
+          <div class="k">We watch</div><span class="small">Monthly active payers</span>
+        </div>
+        <div class="card sh">
+          <div class="em">🏛️</div>
+          <h3>NPCI / regulator</h3>
+          <div class="k">Today</div><span class="small">Two apps hold about 78% of volume</span>
+          <div class="k g">Gets</div><span class="small">A new use that spreads volume</span>
+          <div class="k">We watch</div><span class="small">Top-two share of UPI</span>
+        </div>
+      </div>
+      <div class="card soft"><b>Product call:</b> win the payer first. If the person who fronts the money loves it,
+        friends and merchants follow.</div>
+    </section>
+
+    <!-- 12 · TRUST + RISKS -->
+    <section class="slide">
+      <span class="eye">Trust and risks</span>
+      <h2>It only works if people feel safe</h2>
+      <div class="g2">
+        <div class="card soft">
+          <h3>Rules built in</h3>
+          <div class="step">
+            <div class="num">🔒</div>
+            <div>The nudge is <b>visible only to you</b>.</div>
+          </div>
+          <div class="step">
+            <div class="num">📤</div>
+            <div>Reads <b>only what you choose to share</b>. It never scans your gallery.</div>
+          </div>
+          <div class="step">
+            <div class="num">📱</div>
+            <div>Reading happens <b>on your phone</b>. Chats stay end-to-end encrypted.</div>
+          </div>
+          <div class="step">
+            <div class="num">✏️</div>
+            <div>You <b>confirm and edit</b> the amount and people before anything is sent.</div>
+          </div>
+          <div class="step">
+            <div class="num">🔕</div>
+            <div>"Don't suggest in this chat" is always one tap away.</div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Biggest risks, and the answer</h3>
+          <div class="step">
+            <div class="num">1</div>
+            <div><b>"WhatsApp is reading my chats."</b><br><span class="small">Opt-in at the moment of Share, on-device,
+                per-chat off switch.</span></div>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <div><b>Payments failing break trust.</b><br><span class="small">Early WhatsApp Pay users reported failed
+                payments and switched apps. Reliability first.</span></div>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <div><b>Wrong amount detected.</b><br><span class="small">Always a confirm step.</span></div>
+          </div>
+          <div class="step">
+            <div class="num">4</div>
+            <div><b>A friend has no WhatsApp Pay.</b><br><span class="small">Request opens in any UPI app.</span></div>
+          </div>
+          <span class="src">Failed-payment point: <a
+              href="https://www.outlookbusiness.com/news/whatsapp-pay-sees-muted-17-rise-in-upi-volumes-post-cap-removal"
+              target="_blank" rel="noopener">Outlook Business</a>.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 · ROADMAP -->
+    <section class="slide">
+      <span class="eye">Roadmap and metrics</span>
+      <h2>Prove the habit first, then bring merchants in</h2>
+      <div class="g3">
+        <div class="card"><span class="chip">Phase 1 · Prove it</span>
+          <h3>Read what you share</h3>
+          <ul>
+            <li>Screenshot, PDF, text</li>
+            <li>"Split now" only</li>
+            <li>India beta, no merchant work</li>
+          </ul>
+        </div>
+        <div class="card"><span class="chip a">Phase 2 · Make it a habit</span>
+          <h3>Monthly digest</h3>
+          <ul>
+            <li>Flatmates and family chats</li>
+            <li>One settlement a month</li>
+            <li>Private reminders</li>
+          </ul>
+        </div>
+        <div class="card"><span class="chip b">Phase 3 · Scale it</span>
+          <h3>Merchants join</h3>
+          <ul>
+            <li>Booking details sent with Share</li>
+            <li>Launch partners first</li>
+            <li>Open to any app</li>
+          </ul>
+        </div>
+      </div>
+      <div class="g4">
+        <div class="card soft">
+          <div class="k g">North star</div><b>Money settled through split requests each month</b>
+        </div>
+        <div class="card soft">
+          <div class="k g">Adoption</div><b>% of shared bookings where the nudge is accepted</b>
+        </div>
+        <div class="card soft">
+          <div class="k g">Speed</div><b>Time until everyone has paid</b>
+        </div>
+        <div class="card red">
+          <div class="k" style="color:var(--redTx)">Guardrail</div><b>Dismissals and "stop suggesting" taps</b>
+        </div>
+      </div>
+      <span class="src">Targets are set after a four-week beta. No numbers are promised before real data.</span>
+    </section>
+
+    <!-- 14 · CONCLUSION -->
+    <section class="slide">
+      <span class="eye">Conclusion</span>
+      <div class="quote">WhatsApp does not have to win the checkout. It can win what happens right after it.</div>
+      <div class="g2">
+        <div class="card">
+          <h3>What I learned</h3>
+          <div class="step">
+            <div class="num">1</div>
+            <div>The real problem is the <b>gap between where we talk and where we pay</b>.</div>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <div>The fix needs <b>no new button</b>. The Share we already use is enough.</div>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <div>Splitwise-style apps are <b>exposed</b>: a cap, a price, an install, and payment elsewhere.</div>
+          </div>
+          <div class="step">
+            <div class="num">4</div>
+            <div>Everyone gains: <b>payer, friends, merchants, WhatsApp, regulator</b>.</div>
+          </div>
+        </div>
+        <div class="card soft">
+          <h3>If I were the PM</h3>
+          <div class="k g">Build first</div>
+          <p>The private nudge after a shared booking.</p>
+          <div class="k g">Measure first</div>
+          <p>Nudge acceptance and time to full payment.</p>
+          <div class="k g">Protect always</div>
+          <p>Privacy, reliable payments, and the payer's dignity.</p>
+          <div class="k g">Biggest bet</div>
+          <p>Chat is where small group money should live.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <button class="btn p" onclick="goTo(8)">▶ Replay the prototype</button>
+        <a class="btn" href="https://whatsapp-pay-gray.vercel.app/" target="_blank" rel="noopener">Original conversation
+          prototype ↗</a>
+        <a class="btn" href="https://github.com/pavitrapoojary/whatsapp-new-feature" target="_blank"
+          rel="noopener">GitHub Repo ↗</a>
+        <a class="btn" href="https://pavitra-poojary.vercel.app/" target="_blank" rel="noopener">Portfolio ↗</a>
+      </div>
+    </section>
+
+    <!-- 15 · SOURCES -->
+    <section class="slide">
+      <span class="eye">Sources</span>
+      <h2>Where the numbers come from</h2>
+      <div class="g2">
+        <div class="card">
+          <h3>UPI and WhatsApp Pay</h3>
+          <ul>
+            <li><a href="https://startuptalky.com/upi-transactions-september-2026/" target="_blank" rel="noopener">UPI
+                Sep 2026: 24.07B transactions, Aug app shares</a></li>
+            <li><a
+                href="https://fintechbiznews.com/fintech-digital-payment-/upi-txn-volume-value-fell-in-sept26-aeps-imps-volume-too-down"
+                target="_blank" rel="noopener">FinTech BizNews: UPI Sep 2026 (NPCI data)</a></li>
+            <li><a
+                href="https://www.outlookmoney.com/banking/whatsapp-pay-upi-value-more-than-doubles-from-last-year-to-rs-12957-crore-in-july"
+                target="_blank" rel="noopener">Outlook Money: WhatsApp Pay Jul 2026</a></li>
+            <li><a
+                href="https://www.businesstoday.in/personal-finance/story/whatsapp-pay-races-up-upi-charts-with-167-million-transactions-overtakes-cred-and-amazon-pay-549570-2026-08-17"
+                target="_blank" rel="noopener">Business Today: WhatsApp Pay overtakes CRED and Amazon Pay</a></li>
+            <li><a href="https://thelogicalindian.com/whatsapp-pay-upi-growth-july-2026-122536/" target="_blank"
+                rel="noopener">The Logical Indian: Jul 2026 UPI total, top-two share</a></li>
+            <li><a
+                href="https://www.outlookbusiness.com/news/whatsapp-pay-sees-muted-17-rise-in-upi-volumes-post-cap-removal"
+                target="_blank" rel="noopener">Outlook Business: Jun 2025 share, failed payments</a></li>
+            <li><a href="https://meetanshi.com/blog/upi-statistics/" target="_blank" rel="noopener">UPI stats: P2P vs
+                P2M, Feb 2026</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Rules, users and Splitwise</h3>
+          <ul>
+            <li><a
+                href="https://www.businesstoday.in/tech-today/news/story/npci-extends-30-upi-market-share-cap-deadline-on-3rd-party-apps-to-december-2026-459171-2024-12-31"
+                target="_blank" rel="noopener">Business Today: NPCI 30% cap deadline</a></li>
+            <li><a
+                href="https://www.drishtiias.com/daily-updates/daily-news-analysis/npci-extends-market-cap-deadline-for-upi-apps/print_manually"
+                target="_blank" rel="noopener">Drishti IAS: what happens above the cap</a></li>
+            <li><a href="https://richautomate.in/blog/whatsapp-users-india-2026-statistics" target="_blank"
+                rel="noopener">WhatsApp India users (Meta, Dec 2024)</a></li>
+            <li><a
+                href="https://www.itvoice.in/splitwise-has-introduced-restrictions-on-the-number-of-free-expenses-users-can-add"
+                target="_blank" rel="noopener">IT Voice: Splitwise Pro ₹149 / ₹999</a></li>
+            <li><a href="https://ie.trustpilot.com/review/splitwise.com?page=2" target="_blank"
+                rel="noopener">Trustpilot: daily limit complaints</a></li>
+            <li><a href="https://apps.apple.com/pl/app/id458023433" target="_blank" rel="noopener">App Store: Splitwise
+                payment options</a></li>
+            <li><a
+                href="https://tricount.com/blog/top-splitwise-alternatives-in-india-2025-which-app-should-you-switch-to"
+                target="_blank" rel="noopener">Tricount: Splitwise alternatives in India</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card soft"
+        style="margin-top:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <div>
+          <div class="k g" style="margin:0 0 2px">Made with curiosity</div>
+          <div style="font-size:14px;font-family:var(--sans)">Pavitra Poojary · Product &amp; Design Thesis</div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="https://pavitra-poojary.vercel.app/" target="_blank" rel="noopener">Portfolio ↗</a>
+          <a class="btn" href="https://github.com/pavitrapoojary/whatsapp-new-feature" target="_blank"
+            rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+      <span class="src">Some sources are secondary reports of NPCI data. Product ideas, mockups and the benefits above
+        are my own proposals and not Meta or NPCI statements.</span>
+    </section>
+
+  </div>
+
+  <div class="bottom">
+    <button class="btn" id="prev" onclick="nav(-1)">← Previous</button>
+    <div class="bottom-mid">
+      <span id="status">1 / 15</span>
+      <span class="footer-byline">Made with curiosity by <a href="https://pavitra-poojary.vercel.app/" target="_blank"
+          rel="noopener">Pavitra Poojary</a> · <a href="https://github.com/pavitrapoojary/whatsapp-new-feature"
+          target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"
+            aria-hidden="true" style="vertical-align:-1px;margin-right:2px">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+          </svg>GitHub</a></span>
     </div>
+    <button class="btn p" id="next" onclick="nav(1)">Next →</button>
   </div>
-  <span class="src">Splitwise Pro price (₹149/month, ₹999/year): <a href="https://www.itvoice.in/splitwise-has-introduced-restrictions-on-the-number-of-free-expenses-users-can-add" target="_blank" rel="noopener">IT Voice</a>. The 3–4 entries a day limit is reported by users, Splitwise does not publish it: <a href="https://ie.trustpilot.com/review/splitwise.com?page=2" target="_blank" rel="noopener">Trustpilot</a>. Mockups are illustrative.</span>
-</section>
 
-<!-- 5 · SCORECARD -->
-<section class="slide">
-  <span class="eye">Side by side</span>
-  <h2>Why the chat is the right place to split</h2>
-  <div class="tw"><table class="mx">
-    <tr><th>The same movie, split…</th><th>Splitwise</th><th>WhatsApp today</th><th class="me">This idea</th></tr>
-    <tr><td class="q">Re-type the amount?</td><td><span class="no">Yes</span></td><td><span class="no">Yes, in a message</span></td><td><span class="ok">No, it comes with Share</span></td></tr>
-    <tr><td class="q">Do friends need another app?</td><td><span class="no">Yes, sign up</span></td><td><span class="ok">No</span></td><td><span class="ok">No</span></td></tr>
-    <tr><td class="q">Pay in the same place?</td><td><span class="no">No, settles outside</span></td><td><span class="no">No, switch to a UPI app</span></td><td><span class="ok">Yes, in the chat</span></td></tr>
-    <tr><td class="q">Who keeps the record?</td><td><span class="ok">The app</span></td><td><span class="no">Nobody</span></td><td><span class="ok">The chat shows paid / pending</span></td></tr>
-    <tr><td class="q">Free use limit</td><td><span class="mid">3–4 entries/day</span></td><td><span class="ok">None</span></td><td><span class="ok">None planned</span></td></tr>
-    <tr><td class="q">Reminding a friend</td><td><span class="mid">App notification</span></td><td><span class="no">Public, awkward</span></td><td><span class="ok">Private, polite</span></td></tr>
-  </table></div>
-  <span class="src">Splitwise's own India payment link is Paytm only: <a href="https://apps.apple.com/pl/app/id458023433" target="_blank" rel="noopener">App Store listing</a>. Everyone-must-sign-up claim: <a href="https://www.kittysplit.com/es/splitwise-alternative" target="_blank" rel="noopener">a competitor's comparison, so read with care</a>. Daily limits in India: <a href="https://tricount.com/blog/top-splitwise-alternatives-in-india-2025-which-app-should-you-switch-to" target="_blank" rel="noopener">Tricount comparison</a>.</span>
-</section>
+  <script>
+    /* ---------- deck ---------- */
+    var slides = document.querySelectorAll('.slide');
+    var titles = ["Thesis", "The story", "Problem and proof", "What happens today", "Side by side", "Why Splitwise must change", "How it works", "One habit, many apps", "Live prototype", "Why now", "Stakeholders", "Trust and risks", "Roadmap", "Conclusion", "Sources"];
+    var cur = 0;
+    var dotsEl = document.getElementById('dots');
+    slides.forEach(function (_, i) {
+      var d = document.createElement('i');
+      d.onclick = function () { goTo(i); };
+      dotsEl.appendChild(d);
+    });
+    function paint() {
+      slides.forEach(function (s, i) { s.classList.toggle('on', i === cur); });
+      Array.prototype.forEach.call(dotsEl.children, function (d, i) { d.classList.toggle('on', i === cur); });
+      document.getElementById('count').textContent = (cur + 1) + ' / ' + slides.length;
+      document.getElementById('status').textContent = (cur + 1) + ' / ' + slides.length + ' · ' + titles[cur];
+      document.getElementById('prev').style.visibility = cur === 0 ? 'hidden' : 'visible';
+      document.getElementById('next').style.visibility = cur === slides.length - 1 ? 'hidden' : 'visible';
+      document.getElementById('view').scrollTop = 0;
+    }
+    function goTo(n) { cur = Math.max(0, Math.min(slides.length - 1, n)); paint(); }
+    function nav(d) { goTo(cur + d); }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') nav(1);
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp') nav(-1);
+    });
 
-<!-- 6 · SPLITWISE PRESSURE -->
-<section class="slide">
-  <span class="eye">Why Splitwise would have to change</span>
-  <h2>Splitwise keeps the ledger. It does not own the chat or the payment</h2>
-  <div class="g4">
-    <div class="card red sh"><div class="em">🚧</div><h3>A daily cap</h3><span class="small">3–4 free entries a day. A trip or a month-end hits the wall fast.</span></div>
-    <div class="card red sh"><div class="em">💳</div><h3>A price</h3><span class="small">₹149 a month or ₹999 a year in India, for what a chat can do for free.</span></div>
-    <div class="card red sh"><div class="em">📲</div><h3>Everyone installs</h3><span class="small">The group only works if every friend joins the app.</span></div>
-    <div class="card red sh"><div class="em">↗️</div><h3>Pay somewhere else</h3><span class="small">It tracks who owes. The actual UPI payment happens in another app.</span></div>
-  </div>
-  <div class="g2">
-    <div class="card soft">
-      <h3>My view</h3>
-      <ul>
-        <li>Splitting is becoming a <b>feature of chat and payments</b>, not a product on its own.</li>
-        <li>Splitwise would have to <b>add UPI payments and live inside chats</b>, or lose the everyday small splits.</li>
-        <li>It keeps its strength in <b>long trips, many currencies, complex shares</b>.</li>
-      </ul>
-    </div>
-    <div class="card amber">
-      <h3>Fair counterpoint</h3>
-      <ul>
-        <li>Splitwise also shows up in the Share sheet and has years of history in people's groups.</li>
-        <li>WhatsApp Pay is still a small player in UPI. It must earn trust on basics first.</li>
-        <li>So this is an <b>opinion to test</b>, not a certainty.</li>
-      </ul>
-    </div>
-  </div>
-</section>
+    /* ---------- prototype data ---------- */
+    var D = {
+      bms: {
+        tab: '🎬 BookMyShow', brand: '#d6364b', icon: '🎬', app: 'BookMyShow', mode: 'now', type: 'group',
+        chat: 'Friends 🍿', avatar: '🍿',
+        members: [{ n: 'You', c: '#008069' }, { n: 'Aarav', c: '#d9822b' }, { n: 'Meera', c: '#8e5bd6' }, { n: 'Kabir', c: '#2e7bd6' }],
+        inn: [0, 1, 2, 3], locked: [], gift: null,
+        total: 1200, title: 'Dune: Part Three', line: '4 seats · Sat 7 PM', sub: 'IMAX · Sat 31 Oct · 7:00 PM · PVR', items: '4 × Recliner seats', ref: 'BMS-88219K',
+        earlier: [{ f: 1, t: 'Booking tonight? 🍿', tm: '6:52 PM' }],
+        seen: [['App', 'BookMyShow'], ['What', 'Dune: Part Three · 4 seats'], ['When', 'Sat 31 Oct, 7 PM'], ['How much', '₹1,200'], ['Chat', 'Friends 🍿 · 4 people']],
+        why: 'A one-off outing. Split now is the natural choice: ₹1,200 ÷ 4 = ₹300 each.'
+      },
+      blinkit: {
+        tab: '⚡ Blinkit', brand: '#e0a100', icon: '⚡', app: 'Blinkit', mode: 'digest', type: 'group',
+        chat: 'Flat 4B 🏠', avatar: '🏠',
+        members: [{ n: 'You', c: '#008069' }, { n: 'Rohan', c: '#d9822b' }, { n: 'Nisha', c: '#8e5bd6' }, { n: 'Vikram', c: '#2e7bd6' }],
+        inn: [0, 1, 2, 3], locked: [], gift: null,
+        total: 864, title: 'Groceries delivered', line: '14 items · 12 min', sub: 'Milk, bread, eggs, atta, cold drinks', items: '14 items', ref: 'BLK-402919',
+        earlier: [{ f: 2, t: 'Out of milk again 😩', tm: '7:41 PM' }],
+        ledger: [{ w: 'Pizza night', by: 1, a: 800 }, { w: 'Wi-Fi bill', by: 2, a: 600 }],
+        seen: [['App', 'Blinkit'], ['What', 'Groceries · 14 items'], ['When', 'Today, 7:50 PM'], ['How much', '₹864'], ['Chat', 'Flat 4B 🏠 · 4 flatmates']],
+        why: 'Flatmates buy every week. WhatsApp suggests a running monthly digest, so nobody sends ₹216 requests for milk.'
+      },
+      amazon: {
+        tab: '📦 Amazon gift', brand: '#232f3e', icon: '📦', app: 'Amazon', mode: 'now', type: 'group',
+        chat: 'College Gang 🎓', avatar: '🎓',
+        members: [{ n: 'You', c: '#008069' }, { n: 'Samarth', c: '#d9822b' }, { n: 'Divya', c: '#8e5bd6' }, { n: 'Riya', c: '#c2386d' }],
+        inn: [0, 1, 2], locked: [3], gift: 'Riya', private: true,
+        total: 2400, title: 'Wireless headphones', line: 'Gift wrap · arrives Sat', sub: 'Note on order: "Gift for Riya"', items: '1 × Wireless headphones', ref: 'OD-402-98129',
+        earlier: [{ f: 3, t: 'Can\u2019t wait for the weekend! 🎉', tm: '5:20 PM' }],
+        seen: [['App', 'Amazon'], ['What', 'Headphones · gift wrap'], ['Spotted', '"Gift for Riya"'], ['How much', '₹2,400'], ['Chat', 'College Gang · Riya is in it']],
+        why: 'It spots the gift note, leaves Riya out of the split and sends the requests privately, so the surprise is safe.'
+      },
+      swiggy: {
+        tab: '🍜 Swiggy · 1:1', brand: '#e8590c', icon: '🍜', app: 'Swiggy', mode: 'now', type: 'direct',
+        chat: 'Kabir', avatar: 'K',
+        members: [{ n: 'You', c: '#008069' }, { n: 'Kabir', c: '#2e7bd6' }],
+        inn: [0, 1], locked: [1], gift: null,
+        total: 1180, title: 'Dinner for two', line: '2 mains · 2 sides', sub: 'Delivered in 31 min', items: 'Order for 2', ref: 'SWG-77120',
+        earlier: [{ f: 1, t: 'That was so good 😋', tm: '9:12 PM' }],
+        seen: [['App', 'Swiggy'], ['What', 'Dinner for two'], ['When', 'Today, 9:05 PM'], ['How much', '₹1,180'], ['Chat', 'Kabir · 1:1']],
+        why: 'Not only groups. In a 1:1 chat, one tap splits the bill two ways: ₹590 each.'
+      }
+    };
+    var key = 'bms';
+    var S = {};
+    var STEPS = ['Book', 'Share', 'Send', 'Nudge', 'Split', 'Paid'];
+    function fresh() { var d = D[key]; S = { step: 0, inn: d.inn.slice(), paid: {}, pick: false, taps: 0, pin: null, toast: '' }; }
+    function inr(n) { return '₹' + Number(n).toLocaleString('en-IN'); }
+    function per() { var d = D[key]; return Math.ceil(d.total / S.inn.length); }
 
-<!-- 7 · HOW IT WORKS -->
-<section class="slide">
-  <span class="eye">How it works</span>
-  <h2>Same Share button. WhatsApp reads what comes with it</h2>
-  <div class="g2">
-    <div class="card">
-      <div class="step"><div class="num">1</div><div><b>You book</b> in any app and pay the shop the usual way.</div></div>
-      <div class="step"><div class="num">2</div><div><b>You tap Share</b> and choose WhatsApp, as always.</div></div>
-      <div class="step"><div class="num">3</div><div><b>WhatsApp notices</b> a booking or bill and a private card appears for you only.</div></div>
-      <div class="step"><div class="num">4</div><div><b>You pick</b> Split now, Add to monthly digest, or Not now.</div></div>
-      <div class="step"><div class="num">5</div><div><b>Friends tap Pay</b> inside the chat. Paid ✓ shows up live.</div></div>
-    </div>
-    <div class="card soft">
-      <h3>What WhatsApp picks up</h3>
-      <div class="fld"><span>App</span><span>BookMyShow</span></div>
-      <div class="fld"><span>What</span><span>Dune 3 · 4 seats</span></div>
-      <div class="fld"><span>When</span><span>Sat 31 Oct, 7 PM</span></div>
-      <div class="fld"><span>How much</span><span>₹1,200</span></div>
-      <div class="fld"><span>Who is in the chat</span><span>You, Aarav, Meera, Kabir</span></div>
-      <p class="small" style="margin-top:10px">That is enough to say: "Split ₹1,200 four ways?"</p>
-    </div>
-  </div>
-  <div class="g2">
-    <div class="card blue"><h3>Way 1 · Day one</h3><p style="margin:0">WhatsApp reads what you just shared (screenshot, PDF or text) on your phone and asks you to confirm. <b>Merchants do nothing.</b></p></div>
-    <div class="card blue"><h3>Way 2 · Later</h3><p style="margin:0">Merchants send the booking details along with the same Share. More accurate, no screenshot reading. <b>Still no new button.</b></p></div>
-  </div>
-  <div class="card amber"><b>Honest note:</b> today a Share carries text, links and files, so Way 1 comes first. Way 2 needs merchants to join once the habit is proven.</div>
-</section>
+    /* ---------- prototype render ---------- */
+    function sbar(bg, time) { return '<div class="sb" style="background:' + bg + '"><span>' + time + '</span><span>▂▄▆ 5G ▮</span></div>'; }
 
-<!-- 8 · MANY APPS -->
-<section class="slide">
-  <span class="eye">One habit, many apps</span>
-  <h2>Different bookings, different smart nudges</h2>
-  <div class="g4">
-    <div class="card sh"><div class="em">🎬</div><h3>BookMyShow</h3><span class="chip">Split now</span><span class="small">One-off outing. ₹1,200 ÷ 4 = ₹300 each.</span></div>
-    <div class="card sh"><div class="em">⚡</div><h3>Blinkit</h3><span class="chip a">Monthly digest</span><span class="small">Flatmates buy often. Add to a running tally, settle once a month.</span></div>
-    <div class="card sh"><div class="em">📦</div><h3>Amazon gift</h3><span class="chip b">Surprise-safe</span><span class="small">Sees "Gift for Riya". Leaves her out and sends requests privately.</span></div>
-    <div class="card sh"><div class="em">🍜</div><h3>Swiggy, 1:1</h3><span class="chip">Two people</span><span class="small">Dinner with one friend. ₹1,180 ÷ 2 = ₹590.</span></div>
-  </div>
-  <div class="card soft"><b>Same flow works for:</b> &nbsp;<span class="chip">Zepto</span><span class="chip">Zomato</span><span class="chip">Uber</span><span class="chip">MakeMyTrip</span><span class="chip">IRCTC</span><span class="chip">Airbnb</span><span class="chip">Urban Company</span><span class="chip">Electricity bill</span></div>
-  <div style="margin-top:14px"><button class="btn p" onclick="goTo(8)">▶ Try all four in the prototype</button></div>
-</section>
+    function vMerchant(d, over) {
+      return sbar(d.brand, '7:15') +
+        '<div class="hdr" style="background:' + d.brand + '"><span class="back">‹</span><div><h4>' + d.icon + ' ' + d.app + '</h4><small>Order confirmed</small></div><span class="ic">⋮</span></div>' +
+        '<div class="mer" style="--c:' + d.brand + '">' +
+        '<span class="ok">🎉</span><h3 style="text-align:center;color:' + d.brand + '">Order confirmed!</h3>' +
+        '<div class="mbox"><div style="display:flex;justify-content:space-between"><b>' + d.title + '</b><b>' + inr(d.total) + '</b></div>' +
+        '<div style="color:#667781;margin-top:4px">' + d.sub + '</div><div style="color:#667781">' + d.items + '</div>' +
+        '<div style="border-top:1px dashed #ddd;margin-top:8px;padding-top:6px;font-size:12px;color:#888">Ref ' + d.ref + ' · Paid with your UPI app</div></div>' +
+        '<div style="margin-top:auto;display:flex;flex-direction:column;gap:8px">' +
+        '<button class="mbtn" style="--c:' + d.brand + '" disabled>View details</button>' +
+        '<button class="mbtn fill" style="--c:' + d.brand + '" onclick="tapShare()">⤴ Share</button>' +
+        '<div style="text-align:center;font-size:11px;color:#8696a0">The usual Share button. Nothing added.</div>' +
+        '</div></div>' +
+        (over ? '<div class="shade"></div>' + vShareSheet(d) : '');
+    }
+    function vShareSheet(d) {
+      return '<div class="sheet"><div class="grab"></div><b style="font-size:14px">Share</b>' +
+        '<div style="display:flex;gap:10px;align-items:center;background:#f4f6f5;border-radius:10px;padding:8px;margin:8px 0;font-size:12px"><span style="font-size:22px">' + d.icon + '</span><div><b>' + d.title + '</b><br><span style="color:#667781">' + d.line + ' · ' + inr(d.total) + '</span></div></div>' +
+        '<div class="apps">' +
+        '<div class="app"><i>💬</i>Messages</div>' +
+        '<div class="app wa" onclick="pickWA()"><i>📞</i>WhatsApp</div>' +
+        '<div class="app"><i>✉️</i>Gmail</div>' +
+        '<div class="app"><i>📁</i>Drive</div>' +
+        '<div class="app"><i>⋯</i>More</div>' +
+        '</div>' +
+        '<div style="font-size:11px;color:#667781;text-align:center;margin-top:6px">The same Share sheet you use every day</div></div>';
+    }
+    function vSend(d) {
+      var rows = '';
+      var others = [{ n: 'Mom', s: 'Call me when free' }, { n: 'Office Team', s: 'Standup moved to 11' }];
+      var hot = '<div class="cli hot' + (S.pick ? ' sel' : '') + '" onclick="pickChat()"><div class="av">' + d.avatar + '</div><div><b>' + d.chat + '</b><small>' + (d.type === 'group' ? d.members.slice(1).map(function (m) { return m.n; }).join(', ') : 'Recent chat') + '</small></div>' + (S.pick ? '<span style="margin-left:auto;color:#008069;font-weight:700">✓</span>' : '') + '</div>';
+      rows += hot;
+      others.forEach(function (o) { rows += '<div class="cli"><div class="av" style="background:#e6e9e8;color:#667781">' + o.n.charAt(0) + '</div><div><b>' + o.n + '</b><small>' + o.s + '</small></div></div>'; });
+      return sbar('#008069', '7:15') +
+        '<div class="hdr" style="background:#008069"><span class="back">‹</span><div><h4>Send to…</h4><small>Share from ' + d.app + '</small></div><span class="ic">🔍</span></div>' +
+        '<div class="chatlist"><div style="padding:8px 12px;font-size:12px;color:#008069;font-weight:700">Recent chats</div>' + rows + '</div>' +
+        (S.pick ? '<div class="sendbar"><div class="pv"><b>' + d.chat + '</b><br><span style="color:#667781">' + d.icon + ' ' + d.title + ' · ' + d.line + '</span></div><button class="fab" onclick="sendIt()">➤</button></div>' : '<div class="sendbar" style="color:#667781;font-size:12px">Pick a chat to send to</div>');
+    }
+    function bubbleShared(d) {
+      return '<div class="bub out"><div class="linkcard" style="--c:' + d.brand + '"><div class="a"><span>' + d.icon + ' ' + d.app + '</span><span style="color:#222">' + inr(d.total) + '</span></div><div class="b"><b>' + d.title + '</b><span>' + d.line + '</span></div></div>Booked it! Sharing the confirmation.<span class="tm">7:16 PM <span class="tick">✓✓</span></span></div>';
+    }
+    function chatHeader(d) {
+      var sub = d.type === 'group' ? d.members.map(function (m) { return m.n; }).join(', ') : 'online';
+      return sbar('#008069', '7:16') +
+        '<div class="hdr" style="background:#008069"><span class="back">‹</span><div class="av">' + d.avatar + '</div><div><h4>' + d.chat + '</h4><small>' + sub + '</small></div><span class="ic"><span>📹</span><span>📞</span><span>⋮</span></span></div>';
+    }
+    function earlierHtml(d) {
+      var h = '<div class="datechip">TODAY</div>';
+      d.earlier.forEach(function (m) {
+        var mm = d.members[m.f];
+        h += '<div class="bub in">' + (d.type === 'group' ? '<div class="who" style="color:' + mm.c + '">' + mm.n + '</div>' : '') + m.t + '<span class="tm">' + m.tm + '</span></div>';
+      });
+      return h;
+    }
+    function nudgeHtml(d) {
+      var n = S.inn.length;
+      var prim = d.mode === 'now';
+      var who = d.type === 'direct' ? 'with ' + d.members[1].n : 'with this chat';
+      var h = '<div class="lockchip">🔒 Only you can see this</div><div class="nudge">' +
+        '<h5>You paid ' + inr(d.total) + ' · ' + d.app + '</h5><p>Want to split it ' + who + '?</p>';
+      if (d.gift) h += '<div class="gift">🎁 Spotted "Gift for ' + d.gift + '". She is in this chat, so ' + d.gift + ' is left out and requests go privately.</div>';
+      var cntTxt = d.type === 'direct' ? '2 people' : (n + ' people');
+      h += '<button class="nb ' + (prim ? 'p' : '') + '" onclick="chooseSplit()">⚡ Split ' + inr(d.total) + ' · ' + cntTxt + '</button>' +
+        '<button class="nb ' + (!prim ? 'p' : '') + '" onclick="chooseDigest()">🗓️ Add to monthly digest</button>' +
+        '<button class="nb g" onclick="notNow()">Not now</button></div>';
+      return h;
+    }
+    function vChat(d) {
+      var h = chatHeader(d) + '<div class="chat" id="chatbox">' + earlierHtml(d) + bubbleShared(d);
+      var st = S.step;
+      if (st === 3) h += nudgeHtml(d);
+      if (st === 4) h += '<div class="lockchip">🔒 Only you can see this</div>';
+      if (st === 5) h += reqHtml(d);
+      if (st === 6) h += digestHtml(d);
+      if (st === 7) h += '<div class="lockchip">Nudge dismissed. Nothing was sent. You can still split from the card later.</div>';
+      h += '</div><div class="inbar"><div class="f">☺  Message</div><div class="m">🎤</div></div>';
+      if (st === 4) h += splitSheet(d);
+      if (S.pin !== null) h += pinSheet(d);
+      if (S.toast) h += '<div class="toast">' + S.toast + '</div>';
+      return h;
+    }
+    function splitSheet(d) {
+      var pp = per();
+      var rows = '';
+      d.members.forEach(function (m, i) {
+        var on = S.inn.indexOf(i) > -1;
+        var lock = d.locked.indexOf(i) > -1 || i === 0;
+        var lab = (i === 0) ? 'You (paid)' : m.n;
+        var right = on ? '<b style="color:#008069">' + inr(pp) + '</b>' : '<span style="color:#aaa">' + (d.gift && i === 3 ? 'Surprise 🎁 left out' : 'Left out') + '</span>';
+        var click = (lock && !(d.type === 'direct')) ? (i === 0 ? '' : '') : '';
+        rows += '<div class="srow" ' + ((lock) ? '' : 'onclick="toggleM(' + i + ')"') + '><span class="l"><span class="cb ' + (on ? 'on' : '') + '">' + (on ? '✓' : '') + '</span>' + lab + '</span>' + right + '</div>';
+      });
+      var priv = d.private ? ' privately' : '';
+      return '<div class="shade"></div><div class="sheet"><div class="grab"></div>' +
+        '<div style="display:flex;justify-content:space-between;align-items:baseline"><b style="font-size:15px">Split ' + inr(d.total) + '</b><span style="font-size:12px;color:#008069;font-weight:700">Equal · ' + inr(pp) + ' each</span></div>' +
+        '<div style="font-size:11px;color:#667781;margin:4px 0 4px">' + (d.type === 'direct' ? 'Between you and ' + d.members[1].n : 'Tap to include or leave someone out') + '</div>' + rows +
+        '<button class="nb p" style="margin-top:12px" onclick="sendReq()">Send ' + inr(pp) + ' requests' + priv + '</button></div>';
+    }
+    function collected(d) {
+      var others = S.inn.filter(function (i) { return i !== 0; });
+      var n = 0; others.forEach(function (i) { if (S.paid[i]) n++; });
+      return { others: others, n: n, pp: per() };
+    }
+    function reqHtml(d) {
+      var c = collected(d), pp = c.pp;
+      var h = '';
+      if (d.private) h += '<div class="lockchip">🔒 Sent privately to ' + c.others.map(function (i) { return d.members[i].n; }).join(' & ') + '. ' + d.gift + ' cannot see this.</div>';
+      h += '<div class="reqcard"><div class="t">₹ WHATSAPP PAY · SPLIT REQUEST</div>' +
+        '<div style="font-size:13px;font-weight:700;margin:3px 0 1px">' + d.title + ' · ' + inr(pp) + ' each</div>' +
+        '<div style="font-size:11px;color:#667781;margin-bottom:4px">From you · ' + d.app + ' · ' + inr(d.total) + ' total</div>';
+      c.others.forEach(function (i) {
+        var m = d.members[i];
+        var done = S.paid[i];
+        h += '<div class="reqrow"><span>' + m.n + '</span>' + (done ? '<span class="stat pd">Paid ✓</span>' : '<button class="paybtn" onclick="startPay(' + i + ')">' + m.n + ' taps Pay</button>') + '</div>';
+      });
+      var pct = Math.round(c.n / c.others.length * 100);
+      h += '<div class="prog"><i style="width:' + pct + '%"></i></div><div style="font-size:11px;color:#667781">Collected ' + inr(c.n * pp) + ' of ' + inr(c.others.length * pp) + '</div>';
+      if (c.n < c.others.length) h += '<button class="nb g" style="margin-top:4px;padding:6px" onclick="remind()">🔔 Remind pending people privately</button>';
+      h += '</div>';
+      if (c.n === c.others.length) h += '<div class="datechip" style="background:#e7f6f1;color:#075e54;font-weight:700">🎉 All settled. Nobody had to chase anyone</div>';
+      return h;
+    }
+    function digestMath(d) {
+      var all = d.ledger.concat([{ w: d.app + ' groceries', by: 0, a: d.total }]);
+      var tot = 0; all.forEach(function (x) { tot += x.a; });
+      var share = tot / d.members.length;
+      var net = d.members.map(function (m, i) { var paid = 0; all.forEach(function (x) { if (x.by === i) paid += x.a; }); return Math.round(paid - share); });
+      return { all: all, tot: tot, share: share, net: net };
+    }
+    function digestHtml(d) {
+      var m = digestMath(d);
+      var h = '<div class="reqcard" style="border-color:#128c7e"><div class="t">🗓️ MONTHLY DIGEST · ' + d.chat.toUpperCase() + '</div>' +
+        '<div style="font-size:12px;color:#667781;margin:3px 0">Added ' + d.app + ' ' + inr(d.total) + '. Everyone sees the same numbers.</div><div class="led">';
+      m.all.forEach(function (x) { h += '<div><span>' + x.w + ' <span style="color:#889">· ' + d.members[x.by].n + ' paid</span></span><b>' + inr(x.a) + '</b></div>'; });
+      h += '<div class="tot"><span>Each person\u2019s share</span><span>' + inr(Math.round(m.share)) + '</span></div></div>' +
+        '<div style="font-size:12px;font-weight:700;margin-bottom:3px">On 1 Nov, one settlement:</div><div class="led" style="margin-top:2px">';
+      d.members.forEach(function (p, i) {
+        var v = m.net[i];
+        var txt = v > 0 ? '<b style="color:#075e54">receives ' + inr(v) + '</b>' : (v < 0 ? '<b style="color:#b33922">pays ' + inr(-v) + '</b>' : '<b>even</b>');
+        h += '<div><span>' + p.n + '</span>' + txt + '</div>';
+      });
+      h += '</div><div style="font-size:10.5px;color:#667781">One tap on the 1st. No mid-month chasing for milk.</div></div>';
+      return h;
+    }
+    function pinSheet(d) {
+      var m = d.members[S.pin.i];
+      var dots = '';
+      for (var k = 0; k < 4; k++) dots += '<i class="' + (k < S.pin.f ? 'f' : '') + '"></i>';
+      var body = S.pin.done
+        ? '<div style="font-size:44px">✅</div><b style="font-size:15px">Paid ' + inr(per()) + '</b><div style="font-size:12px;color:#667781;margin-top:3px">to You · WhatsApp Pay</div>'
+        : '<div style="font-size:12px;color:#667781">' + m.n + ' is paying ' + inr(per()) + ' to You</div><b style="font-size:14px">Enter UPI PIN</b><div class="pind">' + dots + '</div><div style="font-size:11px;color:#8696a0">Secured by UPI</div>';
+      return '<div class="shade" style="z-index:6"></div><div class="sheet pinp" style="z-index:7">' + body + '</div>';
+    }
+    function render() {
+      var d = D[key], ph = document.getElementById('phone');
+      var st = S.step, html = '';
+      if (st === 0) html = vMerchant(d, false);
+      else if (st === 1) html = vMerchant(d, true);
+      else if (st === 2) html = vSend(d);
+      else html = vChat(d);
+      ph.innerHTML = html;
+      var cb = document.getElementById('chatbox');
+      if (cb) cb.scrollTop = cb.scrollHeight;
+      renderSide();
+    }
 
-<!-- 9 · PROTOTYPE -->
-<section class="slide">
-  <span class="eye">Live prototype</span>
-  <h2>Try it: book, share, split, paid</h2>
-  <p class="lead" style="margin-bottom:4px">Notice the merchant app: only the normal Share button. Tap through the phone on the left.</p>
-  <div class="tabs" id="tabs"></div>
-  <div class="proto">
-    <div class="phone" id="phone"></div>
-    <div id="side"></div>
-  </div>
-</section>
+    /* ---------- prototype actions ---------- */
+    function tapShare() { S.step = 1; render(); }
+    function pickWA() { S.step = 2; render(); }
+    function pickChat() { S.pick = true; render(); }
+    function sendIt() { S.step = 3; render(); }
+    function chooseSplit() { S.taps++; S.step = 4; render(); }
+    function chooseDigest() { S.taps++; S.step = 6; render(); }
+    function notNow() { S.step = 7; render(); }
+    function toggleM(i) {
+      var d = D[key];
+      var at = S.inn.indexOf(i);
+      if (at > -1) { if (S.inn.length > 2) S.inn.splice(at, 1); }
+      else S.inn.push(i);
+      render();
+    }
+    function sendReq() { S.taps++; S.step = 5; render(); }
+    function startPay(i) {
+      if (S.pin) return;
+      S.pin = { i: i, f: 0, done: false };
+      render();
+      var t = setInterval(function () {
+        if (!S.pin) { clearInterval(t); return; }
+        S.pin.f++;
+        if (S.pin.f >= 4) {
+          clearInterval(t);
+          S.pin.done = true; render();
+          setTimeout(function () { if (S.pin) { S.paid[S.pin.i] = true; S.pin = null; render(); } }, 900);
+        } else render();
+      }, 350);
+    }
+    function remind() {
+      var d = D[key], c = collected(d);
+      var pend = c.others.filter(function (i) { return !S.paid[i]; }).map(function (i) { return d.members[i].n; }).join(', ');
+      S.toast = 'Reminder sent privately to ' + pend + '. Nobody else sees it.';
+      render();
+      setTimeout(function () { S.toast = ''; render(); }, 2600);
+    }
+    function resetP() { fresh(); render(); }
 
-<!-- 10 · WHY NOW -->
-<section class="slide">
-  <span class="eye">Why now</span>
-  <h2>UPI is huge. WhatsApp Pay is small but growing</h2>
-  <div class="g4">
-    <div class="card"><div class="big sm">24.07B</div><div class="cap">UPI transactions in Sep 2026, up 23% in a year</div></div>
-    <div class="card"><div class="big sm">167.9M</div><div class="cap">WhatsApp Pay transactions in Jul 2026</div></div>
-    <div class="card"><div class="big sm">2.25×</div><div class="cap">WhatsApp Pay vs Jul 2025 (74.6M)</div></div>
-    <div class="card amber"><div class="big sm">~0.7%</div><div class="cap">WhatsApp Pay share of UPI volume, Jul 2026 (was under 0.4% in Jun 2025)</div></div>
-  </div>
-  <div class="g2">
-    <div class="card">
-      <h3 class="chart-title">Who holds UPI volume (Aug 2026)</h3>
-      <div class="bar"><label>PhonePe</label><div class="track"><div class="fill" style="width:45.64%">45.6%</div><div class="capline"><em>30% cap</em></div></div></div>
-      <div class="bar"><label>Google Pay</label><div class="track"><div class="fill" style="width:32.26%">32.3%</div></div></div>
-      <div class="bar"><label>Paytm</label><div class="track"><div class="fill" style="width:8.03%">8%</div></div></div>
-      <div class="bar"><label>WhatsApp Pay</label><div class="track"><div class="fill wa" style="width:2%">0.7%</div></div></div>
-      <span class="src">Aug 2026 app shares: <a href="https://startuptalky.com/upi-transactions-september-2026/" target="_blank" rel="noopener">StartupTalky</a>. WhatsApp Pay is July 2026 (167.89M of 23.66B): <a href="https://www.outlookmoney.com/banking/whatsapp-pay-upi-value-more-than-doubles-from-last-year-to-rs-12957-crore-in-july" target="_blank" rel="noopener">Outlook Money</a>, <a href="https://thelogicalindian.com/whatsapp-pay-upi-growth-july-2026-122536/" target="_blank" rel="noopener">The Logical Indian</a>. Sep 2026 total: <a href="https://fintechbiznews.com/fintech-digital-payment-/upi-txn-volume-value-fell-in-sept26-aeps-imps-volume-too-down" target="_blank" rel="noopener">FinTech BizNews</a>. Jun 2025 share: <a href="https://www.outlookbusiness.com/news/whatsapp-pay-sees-muted-17-rise-in-upi-volumes-post-cap-removal" target="_blank" rel="noopener">Outlook Business</a>.</span>
-    </div>
-    <div class="card">
-      <h3>Where the money moves (Feb 2026, UPI volume)</h3>
-      <div class="stack"><div style="width:37.3%;background:#008069">Person to person 37%</div><div style="width:62.7%;background:#8fb7aa">Person to merchant 63%</div></div>
-      <p class="small">The shop counter belongs to PhonePe and Google Pay. The friend-to-friend 37% starts in a chat.</p>
-      <div class="card amber" style="margin-top:8px"><b>The 30% rule:</b> NPCI wants no single app above 30% of UPI volume by 31 Dec 2026. Apps over the limit must stop onboarding new users. The deadline has been extended before, so this is a tailwind, not a plan.</div>
-      <span class="src"><a href="https://meetanshi.com/blog/upi-statistics/" target="_blank" rel="noopener">UPI stats</a> · <a href="https://www.businesstoday.in/tech-today/news/story/npci-extends-30-upi-market-share-cap-deadline-on-3rd-party-apps-to-december-2026-459171-2024-12-31" target="_blank" rel="noopener">Business Today</a> · <a href="https://www.drishtiias.com/daily-updates/daily-news-analysis/npci-extends-market-cap-deadline-for-upi-apps/print_manually" target="_blank" rel="noopener">Drishti IAS</a></span>
-    </div>
-  </div>
-</section>
-
-<!-- 11 · STAKEHOLDERS -->
-<section class="slide">
-  <span class="eye">Stakeholders</span>
-  <h2>Who gains, and how we would know</h2>
-  <div class="g5">
-    <div class="card sh"><div class="em">🧑‍💼</div><h3>The payer</h3><div class="k">Today</div><span class="small">Fronts money, does maths, chases</span><div class="k g">Gets</div><span class="small">Money back without asking</span><div class="k">We watch</div><span class="small">Share repaid within a day</span></div>
-    <div class="card sh"><div class="em">🧑‍🤝‍🧑</div><h3>Friends</h3><div class="k">Today</div><span class="small">Find details, switch apps, type amounts</span><div class="k g">Get</div><span class="small">Exact amount, one tap to pay</span><div class="k">We watch</div><span class="small">Time from request to paid</span></div>
-    <div class="card sh"><div class="em">🏪</div><h3>Merchants</h3><div class="k">Today</div><span class="small">Shared booking is a dead-end screenshot</span><div class="k g">Get</div><span class="small">A rich card in chats that friends can tap to book too</span><div class="k">We watch</div><span class="small">Taps from shared cards to the app</span></div>
-    <div class="card sh"><div class="em">💬</div><h3>WhatsApp / Meta</h3><div class="k">Today</div><span class="small">Huge reach, ~0.7% of UPI</span><div class="k g">Gets</div><span class="small">A frequent, habit-forming use of Pay</span><div class="k">We watch</div><span class="small">Monthly active payers</span></div>
-    <div class="card sh"><div class="em">🏛️</div><h3>NPCI / regulator</h3><div class="k">Today</div><span class="small">Two apps hold about 78% of volume</span><div class="k g">Gets</div><span class="small">A new use that spreads volume</span><div class="k">We watch</div><span class="small">Top-two share of UPI</span></div>
-  </div>
-  <div class="card soft"><b>Product call:</b> win the payer first. If the person who fronts the money loves it, friends and merchants follow.</div>
-</section>
-
-<!-- 12 · TRUST + RISKS -->
-<section class="slide">
-  <span class="eye">Trust and risks</span>
-  <h2>It only works if people feel safe</h2>
-  <div class="g2">
-    <div class="card soft">
-      <h3>Rules built in</h3>
-      <div class="step"><div class="num">🔒</div><div>The nudge is <b>visible only to you</b>.</div></div>
-      <div class="step"><div class="num">📤</div><div>Reads <b>only what you choose to share</b>. It never scans your gallery.</div></div>
-      <div class="step"><div class="num">📱</div><div>Reading happens <b>on your phone</b>. Chats stay end-to-end encrypted.</div></div>
-      <div class="step"><div class="num">✏️</div><div>You <b>confirm and edit</b> the amount and people before anything is sent.</div></div>
-      <div class="step"><div class="num">🔕</div><div>"Don't suggest in this chat" is always one tap away.</div></div>
-    </div>
-    <div class="card">
-      <h3>Biggest risks, and the answer</h3>
-      <div class="step"><div class="num">1</div><div><b>"WhatsApp is reading my chats."</b><br><span class="small">Opt-in at the moment of Share, on-device, per-chat off switch.</span></div></div>
-      <div class="step"><div class="num">2</div><div><b>Payments failing break trust.</b><br><span class="small">Early WhatsApp Pay users reported failed payments and switched apps. Reliability first.</span></div></div>
-      <div class="step"><div class="num">3</div><div><b>Wrong amount detected.</b><br><span class="small">Always a confirm step.</span></div></div>
-      <div class="step"><div class="num">4</div><div><b>A friend has no WhatsApp Pay.</b><br><span class="small">Request opens in any UPI app.</span></div></div>
-      <span class="src">Failed-payment point: <a href="https://www.outlookbusiness.com/news/whatsapp-pay-sees-muted-17-rise-in-upi-volumes-post-cap-removal" target="_blank" rel="noopener">Outlook Business</a>.</span>
-    </div>
-  </div>
-</section>
-
-<!-- 13 · ROADMAP -->
-<section class="slide">
-  <span class="eye">Roadmap and metrics</span>
-  <h2>Prove the habit first, then bring merchants in</h2>
-  <div class="g3">
-    <div class="card"><span class="chip">Phase 1 · Prove it</span><h3>Read what you share</h3><ul><li>Screenshot, PDF, text</li><li>"Split now" only</li><li>India beta, no merchant work</li></ul></div>
-    <div class="card"><span class="chip a">Phase 2 · Make it a habit</span><h3>Monthly digest</h3><ul><li>Flatmates and family chats</li><li>One settlement a month</li><li>Private reminders</li></ul></div>
-    <div class="card"><span class="chip b">Phase 3 · Scale it</span><h3>Merchants join</h3><ul><li>Booking details sent with Share</li><li>Launch partners first</li><li>Open to any app</li></ul></div>
-  </div>
-  <div class="g4">
-    <div class="card soft"><div class="k g">North star</div><b>Money settled through split requests each month</b></div>
-    <div class="card soft"><div class="k g">Adoption</div><b>% of shared bookings where the nudge is accepted</b></div>
-    <div class="card soft"><div class="k g">Speed</div><b>Time until everyone has paid</b></div>
-    <div class="card red"><div class="k" style="color:var(--redTx)">Guardrail</div><b>Dismissals and "stop suggesting" taps</b></div>
-  </div>
-  <span class="src">Targets are set after a four-week beta. No numbers are promised before real data.</span>
-</section>
-
-<!-- 14 · CONCLUSION -->
-<section class="slide">
-  <span class="eye">Conclusion</span>
-  <div class="quote">WhatsApp does not have to win the checkout. It can win what happens right after it.</div>
-  <div class="g2">
-    <div class="card"><h3>What I learned</h3>
-      <div class="step"><div class="num">1</div><div>The real problem is the <b>gap between where we talk and where we pay</b>.</div></div>
-      <div class="step"><div class="num">2</div><div>The fix needs <b>no new button</b>. The Share we already use is enough.</div></div>
-      <div class="step"><div class="num">3</div><div>Splitwise-style apps are <b>exposed</b>: a cap, a price, an install, and payment elsewhere.</div></div>
-      <div class="step"><div class="num">4</div><div>Everyone gains: <b>payer, friends, merchants, WhatsApp, regulator</b>.</div></div>
-    </div>
-    <div class="card soft"><h3>If I were the PM</h3>
-      <div class="k g">Build first</div><p>The private nudge after a shared booking.</p>
-      <div class="k g">Measure first</div><p>Nudge acceptance and time to full payment.</p>
-      <div class="k g">Protect always</div><p>Privacy, reliable payments, and the payer's dignity.</p>
-      <div class="k g">Biggest bet</div><p>Chat is where small group money should live.</p>
-    </div>
-  </div>
-  <div style="display:flex;gap:12px;flex-wrap:wrap">
-    <button class="btn p" onclick="goTo(8)">▶ Replay the prototype</button>
-    <a class="btn" href="https://whatsapp-pay-gray.vercel.app/" target="_blank" rel="noopener">Original conversation prototype ↗</a>
-    <a class="btn" href="https://github.com/pavitrapoojary/whatsapp-new-feature" target="_blank" rel="noopener">GitHub Repo ↗</a>
-    <a class="btn" href="https://pavitra-poojary.vercel.app/" target="_blank" rel="noopener">Portfolio ↗</a>
-  </div>
-</section>
-
-<!-- 15 · SOURCES -->
-<section class="slide">
-  <span class="eye">Sources</span>
-  <h2>Where the numbers come from</h2>
-  <div class="g2">
-    <div class="card">
-      <h3>UPI and WhatsApp Pay</h3>
-      <ul>
-        <li><a href="https://startuptalky.com/upi-transactions-september-2026/" target="_blank" rel="noopener">UPI Sep 2026: 24.07B transactions, Aug app shares</a></li>
-        <li><a href="https://fintechbiznews.com/fintech-digital-payment-/upi-txn-volume-value-fell-in-sept26-aeps-imps-volume-too-down" target="_blank" rel="noopener">FinTech BizNews: UPI Sep 2026 (NPCI data)</a></li>
-        <li><a href="https://www.outlookmoney.com/banking/whatsapp-pay-upi-value-more-than-doubles-from-last-year-to-rs-12957-crore-in-july" target="_blank" rel="noopener">Outlook Money: WhatsApp Pay Jul 2026</a></li>
-        <li><a href="https://www.businesstoday.in/personal-finance/story/whatsapp-pay-races-up-upi-charts-with-167-million-transactions-overtakes-cred-and-amazon-pay-549570-2026-08-17" target="_blank" rel="noopener">Business Today: WhatsApp Pay overtakes CRED and Amazon Pay</a></li>
-        <li><a href="https://thelogicalindian.com/whatsapp-pay-upi-growth-july-2026-122536/" target="_blank" rel="noopener">The Logical Indian: Jul 2026 UPI total, top-two share</a></li>
-        <li><a href="https://www.outlookbusiness.com/news/whatsapp-pay-sees-muted-17-rise-in-upi-volumes-post-cap-removal" target="_blank" rel="noopener">Outlook Business: Jun 2025 share, failed payments</a></li>
-        <li><a href="https://meetanshi.com/blog/upi-statistics/" target="_blank" rel="noopener">UPI stats: P2P vs P2M, Feb 2026</a></li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Rules, users and Splitwise</h3>
-      <ul>
-        <li><a href="https://www.businesstoday.in/tech-today/news/story/npci-extends-30-upi-market-share-cap-deadline-on-3rd-party-apps-to-december-2026-459171-2024-12-31" target="_blank" rel="noopener">Business Today: NPCI 30% cap deadline</a></li>
-        <li><a href="https://www.drishtiias.com/daily-updates/daily-news-analysis/npci-extends-market-cap-deadline-for-upi-apps/print_manually" target="_blank" rel="noopener">Drishti IAS: what happens above the cap</a></li>
-        <li><a href="https://richautomate.in/blog/whatsapp-users-india-2026-statistics" target="_blank" rel="noopener">WhatsApp India users (Meta, Dec 2024)</a></li>
-        <li><a href="https://www.itvoice.in/splitwise-has-introduced-restrictions-on-the-number-of-free-expenses-users-can-add" target="_blank" rel="noopener">IT Voice: Splitwise Pro ₹149 / ₹999</a></li>
-        <li><a href="https://ie.trustpilot.com/review/splitwise.com?page=2" target="_blank" rel="noopener">Trustpilot: daily limit complaints</a></li>
-        <li><a href="https://apps.apple.com/pl/app/id458023433" target="_blank" rel="noopener">App Store: Splitwise payment options</a></li>
-        <li><a href="https://tricount.com/blog/top-splitwise-alternatives-in-india-2025-which-app-should-you-switch-to" target="_blank" rel="noopener">Tricount: Splitwise alternatives in India</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="card soft" style="margin-top:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
-    <div>
-      <div class="k g" style="margin:0 0 2px">Made with curiosity</div>
-      <div style="font-size:14px;font-family:var(--sans)">Pavitra Poojary · Product &amp; Design Thesis</div>
-    </div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a class="btn" href="https://pavitra-poojary.vercel.app/" target="_blank" rel="noopener">Portfolio ↗</a>
-      <a class="btn" href="https://github.com/pavitrapoojary/whatsapp-new-feature" target="_blank" rel="noopener">GitHub ↗</a>
-    </div>
-  </div>
-  <span class="src">Some sources are secondary reports of NPCI data. Product ideas, mockups and the benefits above are my own proposals and not Meta or NPCI statements.</span>
-</section>
-
-</div>
-
-<div class="bottom">
-  <button class="btn" id="prev" onclick="nav(-1)">← Previous</button>
-  <div class="bottom-mid">
-    <span id="status">1 / 15</span>
-    <span class="footer-byline">Made with curiosity by <a href="https://pavitra-poojary.vercel.app/" target="_blank" rel="noopener">Pavitra Poojary</a> · <a href="https://github.com/pavitrapoojary/whatsapp-new-feature" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" style="vertical-align:-1px;margin-right:2px"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></span>
-  </div>
-  <button class="btn p" id="next" onclick="nav(1)">Next →</button>
-</div>
-
-<script>
-/* ---------- deck ---------- */
-var slides = document.querySelectorAll('.slide');
-var titles = ["Thesis","The story","Problem and proof","What happens today","Side by side","Why Splitwise must change","How it works","One habit, many apps","Live prototype","Why now","Stakeholders","Trust and risks","Roadmap","Conclusion","Sources"];
-var cur = 0;
-var dotsEl = document.getElementById('dots');
-slides.forEach(function(_, i){
-  var d = document.createElement('i');
-  d.onclick = function(){ goTo(i); };
-  dotsEl.appendChild(d);
-});
-function paint(){
-  slides.forEach(function(s, i){ s.classList.toggle('on', i === cur); });
-  Array.prototype.forEach.call(dotsEl.children, function(d, i){ d.classList.toggle('on', i === cur); });
-  document.getElementById('count').textContent = (cur+1) + ' / ' + slides.length;
-  document.getElementById('status').textContent = (cur+1) + ' / ' + slides.length + ' · ' + titles[cur];
-  document.getElementById('prev').style.visibility = cur === 0 ? 'hidden' : 'visible';
-  document.getElementById('next').style.visibility = cur === slides.length-1 ? 'hidden' : 'visible';
-  document.getElementById('view').scrollTop = 0;
-}
-function goTo(n){ cur = Math.max(0, Math.min(slides.length-1, n)); paint(); }
-function nav(d){ goTo(cur + d); }
-document.addEventListener('keydown', function(e){
-  if (e.key === 'ArrowRight' || e.key === 'PageDown') nav(1);
-  if (e.key === 'ArrowLeft' || e.key === 'PageUp') nav(-1);
-});
-
-/* ---------- prototype data ---------- */
-var D = {
-  bms: {
-    tab:'🎬 BookMyShow', brand:'#d6364b', icon:'🎬', app:'BookMyShow', mode:'now', type:'group',
-    chat:'Friends 🍿', avatar:'🍿',
-    members:[{n:'You',c:'#008069'},{n:'Aarav',c:'#d9822b'},{n:'Meera',c:'#8e5bd6'},{n:'Kabir',c:'#2e7bd6'}],
-    inn:[0,1,2,3], locked:[], gift:null,
-    total:1200, title:'Dune: Part Three', line:'4 seats · Sat 7 PM', sub:'IMAX · Sat 31 Oct · 7:00 PM · PVR', items:'4 × Recliner seats', ref:'BMS-88219K',
-    earlier:[{f:1,t:'Booking tonight? 🍿',tm:'6:52 PM'}],
-    seen:[['App','BookMyShow'],['What','Dune: Part Three · 4 seats'],['When','Sat 31 Oct, 7 PM'],['How much','₹1,200'],['Chat','Friends 🍿 · 4 people']],
-    why:'A one-off outing. Split now is the natural choice: ₹1,200 ÷ 4 = ₹300 each.'
-  },
-  blinkit: {
-    tab:'⚡ Blinkit', brand:'#e0a100', icon:'⚡', app:'Blinkit', mode:'digest', type:'group',
-    chat:'Flat 4B 🏠', avatar:'🏠',
-    members:[{n:'You',c:'#008069'},{n:'Rohan',c:'#d9822b'},{n:'Nisha',c:'#8e5bd6'},{n:'Vikram',c:'#2e7bd6'}],
-    inn:[0,1,2,3], locked:[], gift:null,
-    total:864, title:'Groceries delivered', line:'14 items · 12 min', sub:'Milk, bread, eggs, atta, cold drinks', items:'14 items', ref:'BLK-402919',
-    earlier:[{f:2,t:'Out of milk again 😩',tm:'7:41 PM'}],
-    ledger:[{w:'Pizza night',by:1,a:800},{w:'Wi-Fi bill',by:2,a:600}],
-    seen:[['App','Blinkit'],['What','Groceries · 14 items'],['When','Today, 7:50 PM'],['How much','₹864'],['Chat','Flat 4B 🏠 · 4 flatmates']],
-    why:'Flatmates buy every week. WhatsApp suggests a running monthly digest, so nobody sends ₹216 requests for milk.'
-  },
-  amazon: {
-    tab:'📦 Amazon gift', brand:'#232f3e', icon:'📦', app:'Amazon', mode:'now', type:'group',
-    chat:'College Gang 🎓', avatar:'🎓',
-    members:[{n:'You',c:'#008069'},{n:'Samarth',c:'#d9822b'},{n:'Divya',c:'#8e5bd6'},{n:'Riya',c:'#c2386d'}],
-    inn:[0,1,2], locked:[3], gift:'Riya', private:true,
-    total:2400, title:'Wireless headphones', line:'Gift wrap · arrives Sat', sub:'Note on order: "Gift for Riya"', items:'1 × Wireless headphones', ref:'OD-402-98129',
-    earlier:[{f:3,t:'Can\u2019t wait for the weekend! 🎉',tm:'5:20 PM'}],
-    seen:[['App','Amazon'],['What','Headphones · gift wrap'],['Spotted','"Gift for Riya"'],['How much','₹2,400'],['Chat','College Gang · Riya is in it']],
-    why:'It spots the gift note, leaves Riya out of the split and sends the requests privately, so the surprise is safe.'
-  },
-  swiggy: {
-    tab:'🍜 Swiggy · 1:1', brand:'#e8590c', icon:'🍜', app:'Swiggy', mode:'now', type:'direct',
-    chat:'Kabir', avatar:'K',
-    members:[{n:'You',c:'#008069'},{n:'Kabir',c:'#2e7bd6'}],
-    inn:[0,1], locked:[1], gift:null,
-    total:1180, title:'Dinner for two', line:'2 mains · 2 sides', sub:'Delivered in 31 min', items:'Order for 2', ref:'SWG-77120',
-    earlier:[{f:1,t:'That was so good 😋',tm:'9:12 PM'}],
-    seen:[['App','Swiggy'],['What','Dinner for two'],['When','Today, 9:05 PM'],['How much','₹1,180'],['Chat','Kabir · 1:1']],
-    why:'Not only groups. In a 1:1 chat, one tap splits the bill two ways: ₹590 each.'
-  }
-};
-var key = 'bms';
-var S = {};
-var STEPS = ['Book','Share','Send','Nudge','Split','Paid'];
-function fresh(){ var d = D[key]; S = {step:0, inn:d.inn.slice(), paid:{}, pick:false, taps:0, pin:null, toast:''}; }
-function inr(n){ return '₹' + Number(n).toLocaleString('en-IN'); }
-function per(){ var d = D[key]; return Math.ceil(d.total / S.inn.length); }
-
-/* ---------- prototype render ---------- */
-function sbar(bg, time){ return '<div class="sb" style="background:'+bg+'"><span>'+time+'</span><span>▂▄▆ 5G ▮</span></div>'; }
-
-function vMerchant(d, over){
-  return sbar(d.brand,'7:15') +
-  '<div class="hdr" style="background:'+d.brand+'"><span class="back">‹</span><div><h4>'+d.icon+' '+d.app+'</h4><small>Order confirmed</small></div><span class="ic">⋮</span></div>' +
-  '<div class="mer" style="--c:'+d.brand+'">' +
-    '<span class="ok">🎉</span><h3 style="text-align:center;color:'+d.brand+'">Order confirmed!</h3>' +
-    '<div class="mbox"><div style="display:flex;justify-content:space-between"><b>'+d.title+'</b><b>'+inr(d.total)+'</b></div>' +
-    '<div style="color:#667781;margin-top:4px">'+d.sub+'</div><div style="color:#667781">'+d.items+'</div>' +
-    '<div style="border-top:1px dashed #ddd;margin-top:8px;padding-top:6px;font-size:12px;color:#888">Ref '+d.ref+' · Paid with your UPI app</div></div>' +
-    '<div style="margin-top:auto;display:flex;flex-direction:column;gap:8px">' +
-      '<button class="mbtn" style="--c:'+d.brand+'" disabled>View details</button>' +
-      '<button class="mbtn fill" style="--c:'+d.brand+'" onclick="tapShare()">⤴ Share</button>' +
-      '<div style="text-align:center;font-size:11px;color:#8696a0">The usual Share button. Nothing added.</div>' +
-    '</div></div>' +
-  (over ? '<div class="shade"></div>' + vShareSheet(d) : '');
-}
-function vShareSheet(d){
-  return '<div class="sheet"><div class="grab"></div><b style="font-size:14px">Share</b>' +
-    '<div style="display:flex;gap:10px;align-items:center;background:#f4f6f5;border-radius:10px;padding:8px;margin:8px 0;font-size:12px"><span style="font-size:22px">'+d.icon+'</span><div><b>'+d.title+'</b><br><span style="color:#667781">'+d.line+' · '+inr(d.total)+'</span></div></div>' +
-    '<div class="apps">' +
-      '<div class="app"><i>💬</i>Messages</div>' +
-      '<div class="app wa" onclick="pickWA()"><i>📞</i>WhatsApp</div>' +
-      '<div class="app"><i>✉️</i>Gmail</div>' +
-      '<div class="app"><i>📁</i>Drive</div>' +
-      '<div class="app"><i>⋯</i>More</div>' +
-    '</div>' +
-    '<div style="font-size:11px;color:#667781;text-align:center;margin-top:6px">The same Share sheet you use every day</div></div>';
-}
-function vSend(d){
-  var rows = '';
-  var others = [{n:'Mom',s:'Call me when free'},{n:'Office Team',s:'Standup moved to 11'}];
-  var hot = '<div class="cli hot'+(S.pick?' sel':'')+'" onclick="pickChat()"><div class="av">'+d.avatar+'</div><div><b>'+d.chat+'</b><small>'+(d.type==='group'?d.members.slice(1).map(function(m){return m.n;}).join(', '):'Recent chat')+'</small></div>'+(S.pick?'<span style="margin-left:auto;color:#008069;font-weight:700">✓</span>':'')+'</div>';
-  rows += hot;
-  others.forEach(function(o){ rows += '<div class="cli"><div class="av" style="background:#e6e9e8;color:#667781">'+o.n.charAt(0)+'</div><div><b>'+o.n+'</b><small>'+o.s+'</small></div></div>'; });
-  return sbar('#008069','7:15') +
-  '<div class="hdr" style="background:#008069"><span class="back">‹</span><div><h4>Send to…</h4><small>Share from '+d.app+'</small></div><span class="ic">🔍</span></div>' +
-  '<div class="chatlist"><div style="padding:8px 12px;font-size:12px;color:#008069;font-weight:700">Recent chats</div>'+rows+'</div>' +
-  (S.pick ? '<div class="sendbar"><div class="pv"><b>'+d.chat+'</b><br><span style="color:#667781">'+d.icon+' '+d.title+' · '+d.line+'</span></div><button class="fab" onclick="sendIt()">➤</button></div>' : '<div class="sendbar" style="color:#667781;font-size:12px">Pick a chat to send to</div>');
-}
-function bubbleShared(d){
-  return '<div class="bub out"><div class="linkcard" style="--c:'+d.brand+'"><div class="a"><span>'+d.icon+' '+d.app+'</span><span style="color:#222">'+inr(d.total)+'</span></div><div class="b"><b>'+d.title+'</b><span>'+d.line+'</span></div></div>Booked it! Sharing the confirmation.<span class="tm">7:16 PM <span class="tick">✓✓</span></span></div>';
-}
-function chatHeader(d){
-  var sub = d.type==='group' ? d.members.map(function(m){return m.n;}).join(', ') : 'online';
-  return sbar('#008069','7:16') +
-  '<div class="hdr" style="background:#008069"><span class="back">‹</span><div class="av">'+d.avatar+'</div><div><h4>'+d.chat+'</h4><small>'+sub+'</small></div><span class="ic"><span>📹</span><span>📞</span><span>⋮</span></span></div>';
-}
-function earlierHtml(d){
-  var h = '<div class="datechip">TODAY</div>';
-  d.earlier.forEach(function(m){
-    var mm = d.members[m.f];
-    h += '<div class="bub in">'+(d.type==='group'?'<div class="who" style="color:'+mm.c+'">'+mm.n+'</div>':'')+m.t+'<span class="tm">'+m.tm+'</span></div>';
-  });
-  return h;
-}
-function nudgeHtml(d){
-  var n = S.inn.length;
-  var prim = d.mode==='now';
-  var who = d.type==='direct' ? 'with '+d.members[1].n : 'with this chat';
-  var h = '<div class="lockchip">🔒 Only you can see this</div><div class="nudge">' +
-    '<h5>You paid '+inr(d.total)+' · '+d.app+'</h5><p>Want to split it '+who+'?</p>';
-  if (d.gift) h += '<div class="gift">🎁 Spotted "Gift for '+d.gift+'". She is in this chat, so '+d.gift+' is left out and requests go privately.</div>';
-  var cntTxt = d.type==='direct' ? '2 people' : (n+' people');
-  h += '<button class="nb '+(prim?'p':'')+'" onclick="chooseSplit()">⚡ Split '+inr(d.total)+' · '+cntTxt+'</button>' +
-       '<button class="nb '+(!prim?'p':'')+'" onclick="chooseDigest()">🗓️ Add to monthly digest</button>' +
-       '<button class="nb g" onclick="notNow()">Not now</button></div>';
-  return h;
-}
-function vChat(d){
-  var h = chatHeader(d) + '<div class="chat" id="chatbox">' + earlierHtml(d) + bubbleShared(d);
-  var st = S.step;
-  if (st === 3) h += nudgeHtml(d);
-  if (st === 4) h += '<div class="lockchip">🔒 Only you can see this</div>';
-  if (st === 5) h += reqHtml(d);
-  if (st === 6) h += digestHtml(d);
-  if (st === 7) h += '<div class="lockchip">Nudge dismissed. Nothing was sent. You can still split from the card later.</div>';
-  h += '</div><div class="inbar"><div class="f">☺  Message</div><div class="m">🎤</div></div>';
-  if (st === 4) h += splitSheet(d);
-  if (S.pin !== null) h += pinSheet(d);
-  if (S.toast) h += '<div class="toast">'+S.toast+'</div>';
-  return h;
-}
-function splitSheet(d){
-  var pp = per();
-  var rows = '';
-  d.members.forEach(function(m, i){
-    var on = S.inn.indexOf(i) > -1;
-    var lock = d.locked.indexOf(i) > -1 || i === 0;
-    var lab = (i===0) ? 'You (paid)' : m.n;
-    var right = on ? '<b style="color:#008069">'+inr(pp)+'</b>' : '<span style="color:#aaa">'+(d.gift && i===3 ? 'Surprise 🎁 left out' : 'Left out')+'</span>';
-    var click = (lock && !(d.type==='direct')) ? (i===0 ? '' : '') : '';
-    rows += '<div class="srow" '+((lock)?'':'onclick="toggleM('+i+')"')+'><span class="l"><span class="cb '+(on?'on':'')+'">'+(on?'✓':'')+'</span>'+lab+'</span>'+right+'</div>';
-  });
-  var priv = d.private ? ' privately' : '';
-  return '<div class="shade"></div><div class="sheet"><div class="grab"></div>' +
-    '<div style="display:flex;justify-content:space-between;align-items:baseline"><b style="font-size:15px">Split '+inr(d.total)+'</b><span style="font-size:12px;color:#008069;font-weight:700">Equal · '+inr(pp)+' each</span></div>' +
-    '<div style="font-size:11px;color:#667781;margin:4px 0 4px">'+(d.type==='direct'?'Between you and '+d.members[1].n:'Tap to include or leave someone out')+'</div>' + rows +
-    '<button class="nb p" style="margin-top:12px" onclick="sendReq()">Send '+inr(pp)+' requests'+priv+'</button></div>';
-}
-function collected(d){
-  var others = S.inn.filter(function(i){return i!==0;});
-  var n = 0; others.forEach(function(i){ if (S.paid[i]) n++; });
-  return {others:others, n:n, pp:per()};
-}
-function reqHtml(d){
-  var c = collected(d), pp = c.pp;
-  var h = '';
-  if (d.private) h += '<div class="lockchip">🔒 Sent privately to '+c.others.map(function(i){return d.members[i].n;}).join(' & ')+'. '+d.gift+' cannot see this.</div>';
-  h += '<div class="reqcard"><div class="t">₹ WHATSAPP PAY · SPLIT REQUEST</div>' +
-       '<div style="font-size:13px;font-weight:700;margin:3px 0 1px">'+d.title+' · '+inr(pp)+' each</div>' +
-       '<div style="font-size:11px;color:#667781;margin-bottom:4px">From you · '+d.app+' · '+inr(d.total)+' total</div>';
-  c.others.forEach(function(i){
-    var m = d.members[i];
-    var done = S.paid[i];
-    h += '<div class="reqrow"><span>'+m.n+'</span>' + (done ? '<span class="stat pd">Paid ✓</span>' : '<button class="paybtn" onclick="startPay('+i+')">'+m.n+' taps Pay</button>') + '</div>';
-  });
-  var pct = Math.round(c.n / c.others.length * 100);
-  h += '<div class="prog"><i style="width:'+pct+'%"></i></div><div style="font-size:11px;color:#667781">Collected '+inr(c.n*pp)+' of '+inr(c.others.length*pp)+'</div>';
-  if (c.n < c.others.length) h += '<button class="nb g" style="margin-top:4px;padding:6px" onclick="remind()">🔔 Remind pending people privately</button>';
-  h += '</div>';
-  if (c.n === c.others.length) h += '<div class="datechip" style="background:#e7f6f1;color:#075e54;font-weight:700">🎉 All settled. Nobody had to chase anyone</div>';
-  return h;
-}
-function digestMath(d){
-  var all = d.ledger.concat([{w:d.app+' groceries',by:0,a:d.total}]);
-  var tot = 0; all.forEach(function(x){ tot += x.a; });
-  var share = tot / d.members.length;
-  var net = d.members.map(function(m, i){ var paid = 0; all.forEach(function(x){ if (x.by===i) paid += x.a; }); return Math.round(paid - share); });
-  return {all:all, tot:tot, share:share, net:net};
-}
-function digestHtml(d){
-  var m = digestMath(d);
-  var h = '<div class="reqcard" style="border-color:#128c7e"><div class="t">🗓️ MONTHLY DIGEST · '+d.chat.toUpperCase()+'</div>' +
-    '<div style="font-size:12px;color:#667781;margin:3px 0">Added '+d.app+' '+inr(d.total)+'. Everyone sees the same numbers.</div><div class="led">';
-  m.all.forEach(function(x){ h += '<div><span>'+x.w+' <span style="color:#889">· '+d.members[x.by].n+' paid</span></span><b>'+inr(x.a)+'</b></div>'; });
-  h += '<div class="tot"><span>Each person\u2019s share</span><span>'+inr(Math.round(m.share))+'</span></div></div>' +
-    '<div style="font-size:12px;font-weight:700;margin-bottom:3px">On 1 Nov, one settlement:</div><div class="led" style="margin-top:2px">';
-  d.members.forEach(function(p, i){
-    var v = m.net[i];
-    var txt = v > 0 ? '<b style="color:#075e54">receives '+inr(v)+'</b>' : (v < 0 ? '<b style="color:#b33922">pays '+inr(-v)+'</b>' : '<b>even</b>');
-    h += '<div><span>'+p.n+'</span>'+txt+'</div>';
-  });
-  h += '</div><div style="font-size:10.5px;color:#667781">One tap on the 1st. No mid-month chasing for milk.</div></div>';
-  return h;
-}
-function pinSheet(d){
-  var m = d.members[S.pin.i];
-  var dots = '';
-  for (var k = 0; k < 4; k++) dots += '<i class="'+(k < S.pin.f ? 'f' : '')+'"></i>';
-  var body = S.pin.done
-    ? '<div style="font-size:44px">✅</div><b style="font-size:15px">Paid '+inr(per())+'</b><div style="font-size:12px;color:#667781;margin-top:3px">to You · WhatsApp Pay</div>'
-    : '<div style="font-size:12px;color:#667781">'+m.n+' is paying '+inr(per())+' to You</div><b style="font-size:14px">Enter UPI PIN</b><div class="pind">'+dots+'</div><div style="font-size:11px;color:#8696a0">Secured by UPI</div>';
-  return '<div class="shade" style="z-index:6"></div><div class="sheet pinp" style="z-index:7">'+body+'</div>';
-}
-function render(){
-  var d = D[key], ph = document.getElementById('phone');
-  var st = S.step, html = '';
-  if (st === 0) html = vMerchant(d, false);
-  else if (st === 1) html = vMerchant(d, true);
-  else if (st === 2) html = vSend(d);
-  else html = vChat(d);
-  ph.innerHTML = html;
-  var cb = document.getElementById('chatbox');
-  if (cb) cb.scrollTop = cb.scrollHeight;
-  renderSide();
-}
-
-/* ---------- prototype actions ---------- */
-function tapShare(){ S.step = 1; render(); }
-function pickWA(){ S.step = 2; render(); }
-function pickChat(){ S.pick = true; render(); }
-function sendIt(){ S.step = 3; render(); }
-function chooseSplit(){ S.taps++; S.step = 4; render(); }
-function chooseDigest(){ S.taps++; S.step = 6; render(); }
-function notNow(){ S.step = 7; render(); }
-function toggleM(i){
-  var d = D[key];
-  var at = S.inn.indexOf(i);
-  if (at > -1){ if (S.inn.length > 2) S.inn.splice(at,1); }
-  else S.inn.push(i);
-  render();
-}
-function sendReq(){ S.taps++; S.step = 5; render(); }
-function startPay(i){
-  if (S.pin) return;
-  S.pin = {i:i, f:0, done:false};
-  render();
-  var t = setInterval(function(){
-    if (!S.pin){ clearInterval(t); return; }
-    S.pin.f++;
-    if (S.pin.f >= 4){
-      clearInterval(t);
-      S.pin.done = true; render();
-      setTimeout(function(){ if (S.pin){ S.paid[S.pin.i] = true; S.pin = null; render(); } }, 900);
-    } else render();
-  }, 350);
-}
-function remind(){
-  var d = D[key], c = collected(d);
-  var pend = c.others.filter(function(i){ return !S.paid[i]; }).map(function(i){ return d.members[i].n; }).join(', ');
-  S.toast = 'Reminder sent privately to '+pend+'. Nobody else sees it.';
-  render();
-  setTimeout(function(){ S.toast = ''; render(); }, 2600);
-}
-function resetP(){ fresh(); render(); }
-
-/* ---------- side panel ---------- */
-function pipIndex(){
-  var s = S.step;
-  if (s <= 3) return s;
-  if (s === 4) return 4;
-  return 5;
-}
-function renderSide(){
-  var d = D[key], s = S.step;
-  var copy = [
-    ['1 · A normal booking screen','You have just paid. The only thing at the bottom is the Share button you use every day.'],
-    ['2 · The same Share sheet','Same sheet as always. You choose WhatsApp. No "Split" option was added.'],
-    ['3 · Choose the chat','Pick the group or person, then send. This is exactly what you do today.'],
-    ['4 · WhatsApp notices the booking','A private card appears for you only, with the smart choice highlighted.'],
-    ['5 · Pick who shares the cost','Leave anyone out in one tap. The amount updates by itself.'],
-    ['6 · Friends pay inside the chat','Each friend taps Pay and uses their UPI PIN. Status turns to Paid live.'],
-    ['6 · Monthly digest','Spends add up in one place. One settlement on the 1st, with debts netted out.'],
-    ['Nudge dismissed','Nothing was sent. Sharing worked as it always did.']
-  ][s];
-  var pips = '<div class="pips">' + STEPS.map(function(_, i){ return '<i class="'+(i <= pipIndex() ? 'd' : '')+'"></i>'; }).join('') + '</div>' +
-             '<div class="pipl">' + STEPS.map(function(x){ return '<span>'+x+'</span>'; }).join('') + '</div>';
-  var seen = '';
-  if (s >= 3) d.seen.forEach(function(r){ seen += '<div class="fld"><span>'+r[0]+'</span><span>'+r[1]+'</span></div>'; });
-  else seen = '<div class="small">Nothing yet. WhatsApp has not seen the booking.</div>';
-  document.getElementById('side').innerHTML =
-    '<div class="card soft" style="margin-bottom:12px">' + pips + '<h3 style="font-size:17px">'+copy[0]+'</h3><p style="margin:0;font-size:14px">'+copy[1]+'</p></div>' +
-    '<div class="card" style="margin-bottom:12px"><div class="k g" style="margin:0 0 6px">What WhatsApp noticed</div>'+seen+'</div>' +
-    '<div class="g2" style="gap:10px;margin-bottom:12px">' +
-      '<div class="card" style="padding:12px"><div class="big sm">0</div><div class="cap">new buttons in '+d.app+'</div></div>' +
-      '<div class="card" style="padding:12px"><div class="big sm">'+S.taps+'</div><div class="cap">extra taps to split</div></div>' +
-    '</div>' +
-    '<div class="card amber" style="margin-bottom:12px"><div class="k" style="margin:0 0 4px;color:var(--amberTx)">Why this app</div><p style="margin:0;font-size:14px">'+d.why+'</p></div>' +
-    '<button class="btn" onclick="resetP()">↺ Restart this flow</button>';
-}
-function buildTabs(){
-  var t = document.getElementById('tabs');
-  t.innerHTML = '';
-  Object.keys(D).forEach(function(k){
-    var b = document.createElement('button');
-    b.className = 'tab' + (k === key ? ' on' : '');
-    b.textContent = D[k].tab;
-    b.onclick = function(){ key = k; buildTabs(); fresh(); render(); };
-    t.appendChild(b);
-  });
-}
-buildTabs(); fresh(); render(); paint();
-</script>
+    /* ---------- side panel ---------- */
+    function pipIndex() {
+      var s = S.step;
+      if (s <= 3) return s;
+      if (s === 4) return 4;
+      return 5;
+    }
+    function renderSide() {
+      var d = D[key], s = S.step;
+      var copy = [
+        ['1 · A normal booking screen', 'You have just paid. The only thing at the bottom is the Share button you use every day.'],
+        ['2 · The same Share sheet', 'Same sheet as always. You choose WhatsApp. No "Split" option was added.'],
+        ['3 · Choose the chat', 'Pick the group or person, then send. This is exactly what you do today.'],
+        ['4 · WhatsApp notices the booking', 'A private card appears for you only, with the smart choice highlighted.'],
+        ['5 · Pick who shares the cost', 'Leave anyone out in one tap. The amount updates by itself.'],
+        ['6 · Friends pay inside the chat', 'Each friend taps Pay and uses their UPI PIN. Status turns to Paid live.'],
+        ['6 · Monthly digest', 'Spends add up in one place. One settlement on the 1st, with debts netted out.'],
+        ['Nudge dismissed', 'Nothing was sent. Sharing worked as it always did.']
+      ][s];
+      var pips = '<div class="pips">' + STEPS.map(function (_, i) { return '<i class="' + (i <= pipIndex() ? 'd' : '') + '"></i>'; }).join('') + '</div>' +
+        '<div class="pipl">' + STEPS.map(function (x) { return '<span>' + x + '</span>'; }).join('') + '</div>';
+      var seen = '';
+      if (s >= 3) d.seen.forEach(function (r) { seen += '<div class="fld"><span>' + r[0] + '</span><span>' + r[1] + '</span></div>'; });
+      else seen = '<div class="small">Nothing yet. WhatsApp has not seen the booking.</div>';
+      document.getElementById('side').innerHTML =
+        '<div class="card soft" style="margin-bottom:12px">' + pips + '<h3 style="font-size:17px">' + copy[0] + '</h3><p style="margin:0;font-size:14px">' + copy[1] + '</p></div>' +
+        '<div class="card" style="margin-bottom:12px"><div class="k g" style="margin:0 0 6px">What WhatsApp noticed</div>' + seen + '</div>' +
+        '<div class="g2" style="gap:10px;margin-bottom:12px">' +
+        '<div class="card" style="padding:12px"><div class="big sm">0</div><div class="cap">new buttons in ' + d.app + '</div></div>' +
+        '<div class="card" style="padding:12px"><div class="big sm">' + S.taps + '</div><div class="cap">extra taps to split</div></div>' +
+        '</div>' +
+        '<div class="card amber" style="margin-bottom:12px"><div class="k" style="margin:0 0 4px;color:var(--amberTx)">Why this app</div><p style="margin:0;font-size:14px">' + d.why + '</p></div>' +
+        '<button class="btn" onclick="resetP()">↺ Restart this flow</button>';
+    }
+    function buildTabs() {
+      var t = document.getElementById('tabs');
+      t.innerHTML = '';
+      Object.keys(D).forEach(function (k) {
+        var b = document.createElement('button');
+        b.className = 'tab' + (k === key ? ' on' : '');
+        b.textContent = D[k].tab;
+        b.onclick = function () { key = k; buildTabs(); fresh(); render(); };
+        t.appendChild(b);
+      });
+    }
+    buildTabs(); fresh(); render(); paint();
+  </script>
 </body>
+
 </html>
